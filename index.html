@@ -8,14 +8,13 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: "Helvetica Neue", Arial, sans-serif; line-height: 1.7; color: #333333; background-color: #f4f7f9; }
     
-    /* Top Admin Navigation Bar inside Hero */
     .hero {
       position: relative;
       background-image: linear-gradient(rgba(0, 119, 182, 0.5), rgba(0, 180, 216, 0.5)), url('images/fuji.jpg');
       background-size: cover; background-position: center;
       color: #ffffff; text-align: center; padding: 110px 20px 100px;
     }
-    .top-admin-bar {
+    .top-auth-bar {
       position: absolute;
       top: 16px;
       right: 20px;
@@ -25,24 +24,19 @@
       z-index: 100;
     }
     .top-btn-login {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.95);
       color: #0077b6;
       border: 1px solid #ffffff;
-      padding: 7px 15px;
+      padding: 7px 16px;
       border-radius: 20px;
       font-size: 0.85rem;
       font-weight: bold;
       cursor: pointer;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-      transition: all 0.2s ease;
     }
-    .top-btn-login:hover {
-      background: #ffffff;
-      transform: translateY(-1px);
-    }
-    .top-admin-badge {
+    .top-user-badge {
       display: none;
-      background: rgba(15, 23, 42, 0.75);
+      background: rgba(15, 23, 42, 0.78);
       color: #ffffff;
       padding: 6px 12px;
       border-radius: 20px;
@@ -59,11 +53,6 @@
       font-size: 0.85rem;
       font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-      transition: background 0.2s;
-    }
-    .top-btn-add:hover {
-      background: #005f92;
     }
     .top-btn-logout {
       display: none;
@@ -75,10 +64,6 @@
       font-size: 0.82rem;
       font-weight: bold;
       cursor: pointer;
-      transition: background 0.2s;
-    }
-    .top-btn-logout:hover {
-      background: #b91c1c;
     }
 
     .hero-sub { font-size: 1.3rem; letter-spacing: 0.1em; opacity: 0.9; margin-bottom: 8px; }
@@ -96,8 +81,6 @@
       max-width: 850px;
       margin: 0 auto 50px;
     }
-    
-    /* スポットカード */
     .spot-card {
       background: #ffffff; border-radius: 12px; overflow: hidden;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06); display: flex; flex-direction: column;
@@ -105,31 +88,11 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: pointer; text-decoration: none; color: inherit;
     }
     .spot-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); }
-    
     .spot-tag { background: #0077b6; color: #ffffff; font-size: 0.8rem; font-weight: bold; padding: 4px 12px; align-self: flex-start; margin: 16px 0 0 16px; border-radius: 20px; }
-    .spot-body {
-      padding: 16px 20px 24px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
+    .spot-body { padding: 16px 20px 24px; flex: 1; display: flex; flex-direction: column; }
     .spot-title { font-size: 1.2rem; text-align: center; margin-bottom: 10px; color: #1a1a1a; }
     .spot-text { font-size: 0.92rem; color: #555555; }
-    .spot-link {
-      display: block;
-      text-align: right;
-      color: #0077b6;
-      font-weight: bold;
-      margin-top: auto;
-      padding-top: 12px;
-      font-size: 0.9rem;
-      transition: color 0.3s ease;
-    }
-
-    .spot-card:hover .spot-link {
-      color: #00b4d8;
-      text-decoration: underline;
-    }
+    .spot-link { display: block; text-align: right; color: #0077b6; font-weight: bold; margin-top: auto; padding-top: 12px; font-size: 0.9rem; }
 
     .info-box { background: #e8f4f8; border-left: 4px solid #0077b6; padding: 20px; border-radius: 4px; margin-bottom: 40px; }
     .info-box h3 { font-size: 1.1rem; color: #0077b6; margin-bottom: 8px; }
@@ -138,33 +101,16 @@
 
     footer { text-align: center; padding: 25px 20px; background: #1e293b; color: #94a3b8; font-size: 0.85rem; }
 
-    /* 参加者の感想 (2x2 Grid) */
+    /* 参加者の感想 */
     .reviews-section { margin: 60px auto 50px; max-width: 900px; }
     .review-select-container { 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 25px; 
+      display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 25px; 
     }
-    .review-select-container label { 
-      font-weight: bold; 
-      color: #0077b6; 
-      font-size: 1rem; 
-    }
+    .review-select-container label { font-weight: bold; color: #0077b6; font-size: 1rem; }
     .review-year-select { 
-      padding: 8px 16px; 
-      border: 1px solid #0077b6; 
-      border-radius: 8px; 
-      font-size: 1rem; 
-      color: #0077b6; 
-      background: #ffffff; 
-      cursor: pointer; 
+      padding: 8px 16px; border: 1px solid #0077b6; border-radius: 8px; font-size: 1rem; color: #0077b6; background: #ffffff; cursor: pointer; 
     }
-
-    /* Section Add Button (Visible ONLY After Admin Login) */
-    .btn-admin-panel {
+    .btn-open-form {
       display: none;
       padding: 8px 18px;
       background: #0077b6;
@@ -174,339 +120,105 @@
       font-size: 0.92rem;
       font-weight: bold;
       cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .btn-admin-panel:hover {
-      background: #005f92;
-      transform: translateY(-1px);
     }
 
     .review-grid { 
-      display: grid; 
-      grid-template-columns: repeat(2, minmax(0, 1fr)); 
-      gap: 20px; 
-      max-width: 850px;
-      margin: 0 auto;
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; max-width: 850px; margin: 0 auto;
     }
     .review-card { 
-      background: #ffffff; 
-      border-radius: 12px; 
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06); 
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      position: relative;
+      background: #ffffff; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06); display: flex; flex-direction: column; cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .review-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    }
-    .review-card-body {
-      padding: 16px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-    }
-    .review-student-name {
-      font-size: 0.95rem;
-      color: #0077b6;
-      font-weight: bold;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    .review-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); }
+    .review-card-body { padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .review-student-name { font-size: 0.95rem; color: #0077b6; font-weight: bold; white-space: nowrap; display: flex; align-items: center; gap: 8px; }
     .review-avatar-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      background: #e8f4f8;
-      border-radius: 50%;
-      font-size: 1.05rem;
-      overflow: hidden;
-      flex-shrink: 0;
-      border: 1.5px solid #bae6fd;
+      display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px;
+      background: #e8f4f8; border-radius: 50%; font-size: 1.05rem; overflow: hidden; flex-shrink: 0; border: 1.5px solid #bae6fd;
     }
-    .review-avatar-badge img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .review-topic-title { 
-      color: #555555; 
-      font-size: 0.9rem; 
-      text-align: right;
-      font-weight: bold;
-    }
-    .review-card-img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .delete-review-btn {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      background: rgba(220, 38, 38, 0.92);
-      color: #ffffff;
-      border: none;
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 0.78rem;
-      font-weight: bold;
-      cursor: pointer;
-      z-index: 5;
-    }
-    .delete-review-btn:hover {
-      background: #b91c1c;
-    }
+    .review-avatar-badge img { width: 100%; height: 100%; object-fit: cover; }
+    .review-topic-title { color: #555555; font-size: 0.9rem; text-align: right; font-weight: bold; }
+    .review-card-img { width: 100%; height: 180px; object-fit: cover; }
     .review-note { text-align: center; color: #888888; font-size: 0.8rem; margin-top: 25px; }
 
-    /* Admin Review Add Form Box */
-    .admin-portal-box {
-      max-width: 850px;
-      margin: 0 auto 30px;
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-top: 4px solid #0077b6;
-      border-radius: 12px;
-      padding: 24px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-      display: none;
+    /* Form Box */
+    .portal-box {
+      max-width: 850px; margin: 0 auto 30px; background: #ffffff; border: 1px solid #cbd5e1;
+      border-top: 4px solid #0077b6; border-radius: 12px; padding: 24px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); display: none;
     }
     .portal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #e8f4f8;
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;
+      padding-bottom: 10px; border-bottom: 2px solid #e8f4f8;
     }
-    .portal-title {
-      font-size: 1.15rem;
-      color: #1e293b;
-      font-weight: bold;
-    }
-    .admin-badge {
-      background: #0077b6;
-      color: #ffffff;
-      font-size: 0.75rem;
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin-left: 8px;
-      vertical-align: middle;
-    }
-    .close-btn {
-      background: #f1f5f9;
-      color: #475569;
-      border: 1px solid #cbd5e1;
-      padding: 5px 12px;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      cursor: pointer;
-    }
-    .close-btn:hover { background: #e2e8f0; }
+    .portal-title { font-size: 1.15rem; color: #1e293b; font-weight: bold; }
+    .close-btn { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; padding: 5px 12px; border-radius: 6px; font-size: 0.85rem; cursor: pointer; }
 
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-    }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      text-align: left;
-    }
-    .form-group.full-width {
-      grid-column: span 2;
-    }
-    .form-group label {
-      font-size: 0.9rem;
-      font-weight: bold;
-      color: #334155;
-    }
-    .form-control {
-      padding: 10px 12px;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-family: inherit;
-    }
-    .form-control:focus {
-      outline: none;
-      border-color: #0077b6;
-      box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.15);
-    }
+    .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; text-align: left; }
+    .form-group.full-width { grid-column: span 2; }
+    .form-group label { font-size: 0.9rem; font-weight: bold; color: #334155; }
+    .form-control { padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: inherit; }
 
-    /* Avatar Selector (Emoji + Custom Photo Upload) */
-    .avatar-selector-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .avatar-options {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
+    .avatar-selector-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .avatar-options { display: flex; gap: 8px; flex-wrap: wrap; }
     .avatar-option {
-      width: 42px;
-      height: 42px;
-      border: 2px solid #e2e8f0;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      cursor: pointer;
-      background: #f8fafc;
-      transition: all 0.2s;
+      width: 42px; height: 42px; border: 2px solid #e2e8f0; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-size: 1.3rem; cursor: pointer; background: #f8fafc;
     }
-    .avatar-option.selected {
-      border-color: #0077b6;
-      background: #e0f2fe;
-      transform: scale(1.08);
-    }
+    .avatar-option.selected { border-color: #0077b6; background: #e0f2fe; transform: scale(1.08); }
     .avatar-upload-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      border: 2px dashed #0077b6;
-      border-radius: 20px;
-      background: #f0f9ff;
-      color: #0077b6;
-      font-size: 0.88rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px;
+      border: 2px dashed #0077b6; border-radius: 20px; background: #f0f9ff; color: #0077b6;
+      font-size: 0.88rem; font-weight: bold; cursor: pointer;
     }
-    .avatar-upload-btn:hover {
-      background: #e0f2fe;
-    }
-    .avatar-upload-btn.selected {
-      border-style: solid;
-      background: #0077b6;
-      color: #ffffff;
-    }
-    .avatar-preview-circle {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #0077b6;
-      display: none;
-    }
+    .avatar-upload-btn.selected { border-style: solid; background: #0077b6; color: #ffffff; }
+    .avatar-preview-circle { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid #0077b6; display: none; }
 
     .primary-btn {
-      background: #0077b6;
-      color: #ffffff;
-      border: none;
-      padding: 11px 28px;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.2s;
+      background: #0077b6; color: #ffffff; border: none; padding: 11px 28px;
+      border-radius: 8px; font-size: 1rem; font-weight: bold; cursor: pointer;
     }
-    .primary-btn:hover { background: #005f92; }
+    .primary-btn:disabled { background: #94a3b8; cursor: not-allowed; }
 
-    .login-hint {
-      font-size: 0.82rem;
-      color: #64748b;
-    }
     .error-msg {
-      color: #dc2626;
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 0.88rem;
-      font-weight: bold;
-      margin-top: 10px;
-      display: none;
-      text-align: left;
+      color: #dc2626; background: #fef2f2; border: 1px solid #fecaca; padding: 8px 12px;
+      border-radius: 6px; font-size: 0.88rem; font-weight: bold; margin-top: 10px; display: none;
+    }
+    .success-toast {
+      color: #15803d; background: #f0fdf4; border: 1px solid #bbf7d0; padding: 8px 12px;
+      border-radius: 6px; font-size: 0.88rem; font-weight: bold; margin-top: 10px; display: none;
     }
 
-    /* Modal Popup */
+    /* Modal */
     .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+      display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.8); align-items: center; justify-content: center; padding: 20px;
     }
     .modal-content {
-      max-width: 700px;
-      width: 100%;
-      background: #ffffff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.3);
-      text-align: center;
-      padding: 25px;
-      position: relative;
+      max-width: 700px; width: 100%; background: #ffffff; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.3); text-align: center; padding: 25px; position: relative;
     }
-    .login-modal-content {
-      max-width: 440px;
-      text-align: left;
-    }
-    .modal-content img {
-      width: 100%;
-      max-height: 400px;
-      object-fit: contain;
-      border-radius: 8px;
-      margin-bottom: 15px;
-    }
-    .modal-close {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 1.8rem;
-      color: #333;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .modal-title {
-      font-size: 1.2rem;
-      color: #0077b6;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-    .modal-caption {
-      font-size: 1.05rem;
-      color: #333333;
-      line-height: 1.6;
-    }
-    
+    .login-modal-content { max-width: 420px; text-align: left; }
+    .modal-content img { width: 100%; max-height: 400px; object-fit: contain; border-radius: 8px; margin-bottom: 15px; }
+    .modal-close { position: absolute; top: 10px; right: 15px; font-size: 1.8rem; color: #333; cursor: pointer; font-weight: bold; }
+    .modal-title { font-size: 1.2rem; color: #0077b6; font-weight: bold; margin-bottom: 8px; }
+    .modal-caption { font-size: 1.05rem; color: #333333; line-height: 1.6; }
+
     @media (max-width: 700px) {
       .review-grid, .form-grid { grid-template-columns: 1fr; }
       .form-group.full-width { grid-column: span 1; }
-      .top-admin-bar { top: 10px; right: 10px; gap: 6px; }
     }
   </style>
 </head>
 <body>
 
   <header class="hero">
-    <!-- Top Right Admin Bar -->
-    <div class="top-admin-bar">
-      <button type="button" id="topAdminLoginBtn" class="top-btn-login">🔐 管理者ログイン</button>
-      <span id="topAdminBadge" class="top-admin-badge">👤 管理者ログイン中</span>
-      <button type="button" id="topAddReviewBtn" class="top-btn-add">✍️ 感想追加</button>
+    <div class="top-auth-bar">
+      <button type="button" id="topLoginBtn" class="top-btn-login">🔐 学生ログイン</button>
+      <span id="topUserBadge" class="top-user-badge">🎓 ログイン中</span>
+      <button type="button" id="topAddBtn" class="top-btn-add">✍️ 感想追加</button>
       <button type="button" id="topLogoutBtn" class="top-btn-logout">ログアウト</button>
     </div>
 
@@ -532,7 +244,6 @@
       <p style="text-align: center; margin-bottom: 25px; color: #666;">※各スポットをクリックすると、詳細ページが開きます。</p>
       
       <div class="spots-grid">
-        <!-- スポット 1 -->
         <a href="detail1.html" class="spot-card">
           <span class="spot-tag">グルメ & ショッピング</span>
           <div class="spot-body">
@@ -543,7 +254,6 @@
           </div>
         </a>
 
-        <!-- スポット 2 -->
         <a href="detail2.html" class="spot-card">
           <span class="spot-tag">絶景クルーズ</span>
           <div class="spot-body">
@@ -554,7 +264,6 @@
           </div>
         </a>
 
-        <!-- スポット 3 -->
         <a href="detail3.html" class="spot-card">
           <span class="spot-tag">世界文化遺産</span>
           <div class="spot-body">
@@ -565,7 +274,6 @@
           </div>
         </a>
 
-        <!-- スポット 4 -->
         <a href="detail4.html" class="spot-card">
           <span class="spot-tag">国宝・パワースポット</span>
           <div class="spot-body">
@@ -591,16 +299,14 @@
             <option value="2026">2026年</option>
           </select>
         </div>
-
-        <!-- Visible ONLY after admin logs in -->
-        <button type="button" id="openAdminPanelBtn" class="btn-admin-panel">✍️ 感想を追加（管理者）</button>
+        <button type="button" id="openFormBtn" class="btn-open-form">✍️ 感想を追加する</button>
       </div>
 
-      <!-- Admin Review Add Form Box (Only accessible when admin is logged in) -->
-      <div id="adminPortalBox" class="admin-portal-box">
+      <!-- Review Submission Box (Visible ONLY after login) -->
+      <div id="reviewPortalBox" class="portal-box">
         <div class="portal-header">
-          <span class="portal-title">✍️ 学生の感想を登録 <span class="admin-badge">管理者モード</span></span>
-          <button type="button" id="closePortalBtn" class="close-btn">閉じる</button>
+          <span class="portal-title">✍️ 研修旅行の感想を投稿（自動保存）</span>
+          <button type="button" id="closeFormBtn" class="close-btn">閉じる</button>
         </div>
         <form id="reviewSubmitForm">
           <div class="form-grid">
@@ -634,58 +340,54 @@
                   <div class="avatar-option" data-avatar="🗻">🗻</div>
                   <div class="avatar-option" data-avatar="📸">📸</div>
                 </div>
-
-                <!-- Custom Avatar Photo Upload -->
                 <label for="avatarPhotoInput" id="avatarUploadLabel" class="avatar-upload-btn">
                   📷 自分の写真を使う
                 </label>
                 <input type="file" id="avatarPhotoInput" accept="image/*" style="display: none;">
-                <img id="avatarPreviewImg" class="avatar-preview-circle" src="" alt="アバタープレビュー">
+                <img id="avatarPreviewImg" class="avatar-preview-circle" src="" alt="プレビュー">
               </div>
             </div>
           </div>
           <p id="yearErrorMsg" class="error-msg"></p>
+          <p id="saveSuccessMsg" class="success-toast">✅ 保存完了！Webサイトに自動で反映されました。</p>
           <div style="margin-top: 16px; text-align: right;">
-            <button type="submit" class="primary-btn">OK（登録する）</button>
+            <button type="submit" id="submitReviewBtn" class="primary-btn">OK（自動保存して公開）</button>
           </div>
         </form>
       </div>
 
-      <div class="review-grid" id="review-list" aria-live="polite">
-        <!-- Loaded via JS -->
-      </div>
+      <div class="review-grid" id="review-list" aria-live="polite"></div>
       <p class="review-note">※見どころの写真をクリックすると、写真とタイトルが大きく表示されます。</p>
     </section>
 
   </div>
 
-  <!-- Admin Login Modal Popup (Triggered from Top Header) -->
-  <div id="adminLoginModal" class="modal" onclick="closeLoginModal()">
+  <!-- Student Login Modal -->
+  <div id="loginModal" class="modal" onclick="closeLoginModal()">
     <div class="modal-content login-modal-content" onclick="event.stopPropagation()">
       <span class="modal-close" onclick="closeLoginModal()">&times;</span>
-      <h3 class="modal-title" style="margin-bottom: 16px;"></h3>
-      <form id="adminLoginForm">
+      <h3 class="modal-title" style="margin-bottom: 16px;">🔐 学生ログイン</h3>
+      <form id="firebaseLoginForm">
         <div class="form-group" style="margin-bottom: 14px;">
-          <label for="adminIdInput">管理者ID</label>
-          <input type="text" id="adminIdInput" class="form-control" placeholder="管理者IDを入力" required>
+          <label for="loginEmailInput">メールアドレス</label>
+          <input type="email" id="loginEmailInput" class="form-control" placeholder="例: student2027@school.jp" required>
         </div>
         <div class="form-group" style="margin-bottom: 10px;">
-          <label for="adminPasswordInput">パスワード</label>
-          <input type="password" id="adminPasswordInput" class="form-control" placeholder="パスワードを入力" required>
+          <label for="loginPasswordInput">パスワード</label>
+          <input type="password" id="loginPasswordInput" class="form-control" placeholder="パスワードを入力" required>
         </div>
-        <p id="loginError" class="error-msg">※管理者IDまたはパスワードが正しくありません。</p>
-        <div style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center; gap: 10px;">
-          <span class="login-hint">ID: <strong>admin</strong> / PW: <strong>admin2027</strong></span>
-          <button type="submit" class="primary-btn">ログイン</button>
+        <p id="loginError" class="error-msg">※メールアドレスまたはパスワードが正しくありません。</p>
+        <div style="margin-top: 16px; text-align: right;">
+          <button type="submit" id="loginSubmitBtn" class="primary-btn">ログイン</button>
         </div>
       </form>
     </div>
   </div>
 
-  <!-- Modal Popup Box for Photo Zoom -->
-  <div id="photoModal" class="modal" onclick="closeModal()">
+  <!-- Photo Zoom Modal -->
+  <div id="photoModal" class="modal" onclick="closePhotoModal()">
     <div class="modal-content" onclick="event.stopPropagation()">
-      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <span class="modal-close" onclick="closePhotoModal()">&times;</span>
       <img id="modalImg" src="" alt="スポットの写真">
       <h3 id="modalTitle" class="modal-title"></h3>
       <p id="modalCaption" class="modal-caption"></p>
@@ -697,12 +399,26 @@
     <p style="margin-top: 4px;">企画手配：株式会社 第一観光</p>
   </footer>
 
-  <script>
-    const MAX_ALLOWED_YEAR = 2027;
-    const ADMIN_ID = "admin";
-    const ADMIN_PASS = "admin2027";
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-auth.js";
+    import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js";
 
-    const savedCustomReviews = JSON.parse(localStorage.getItem('custom_student_reviews') || '{}');
+    const firebaseConfig = {
+      apiKey: "AIzaSyAJb5BYGEu64j-_u1W5tv3ysABedYsbGaM",
+      authDomain: "project-bizae.firebaseapp.com",
+      projectId: "project-bizae",
+      storageBucket: "project-bizae.firebasestorage.app",
+      messagingSenderId: "823598624733",
+      appId: "1:823598624733:web:65b110573fc253f3fa1034",
+      measurementId: "G-C6M02119NH"
+    };
+
+    const MAX_ALLOWED_YEAR = 2027;
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
 
     const baseReviewData = {
       "2024": [
@@ -725,38 +441,55 @@
       ]
     };
 
-    const reviewData = {
-      ...baseReviewData,
-      ...savedCustomReviews
-    };
+    let reviewData = structuredClone(baseReviewData);
+    let isLoggedIn = false;
+    let selectedAvatar = "🧑‍🎓";
 
-    // Elements
+    // UI Elements
     const yearSelect = document.getElementById('review-year-select');
-    const topAdminLoginBtn = document.getElementById('topAdminLoginBtn');
-    const topAdminBadge = document.getElementById('topAdminBadge');
-    const topAddReviewBtn = document.getElementById('topAddReviewBtn');
+    const reviewList = document.getElementById('review-list');
+    const topLoginBtn = document.getElementById('topLoginBtn');
+    const topUserBadge = document.getElementById('topUserBadge');
+    const topAddBtn = document.getElementById('topAddBtn');
     const topLogoutBtn = document.getElementById('topLogoutBtn');
-    const openAdminPanelBtn = document.getElementById('openAdminPanelBtn');
-
-    const adminLoginModal = document.getElementById('adminLoginModal');
-    const adminLoginForm = document.getElementById('adminLoginForm');
+    const openFormBtn = document.getElementById('openFormBtn');
+    const reviewPortalBox = document.getElementById('reviewPortalBox');
+    const closeFormBtn = document.getElementById('closeFormBtn');
+    const loginModal = document.getElementById('loginModal');
+    const firebaseLoginForm = document.getElementById('firebaseLoginForm');
     const loginError = document.getElementById('loginError');
-
-    const adminPortalBox = document.getElementById('adminPortalBox');
-    const closePortalBtn = document.getElementById('closePortalBtn');
     const reviewSubmitForm = document.getElementById('reviewSubmitForm');
     const yearErrorMsg = document.getElementById('yearErrorMsg');
-    const reviewList = document.getElementById('review-list');
+    const saveSuccessMsg = document.getElementById('saveSuccessMsg');
+    const submitReviewBtn = document.getElementById('submitReviewBtn');
 
     const avatarPhotoInput = document.getElementById('avatarPhotoInput');
     const avatarUploadLabel = document.getElementById('avatarUploadLabel');
     const avatarPreviewImg = document.getElementById('avatarPreviewImg');
 
-    let isAdminLoggedIn = sessionStorage.getItem('admin_logged_in') === 'true';
-    let selectedAvatar = "🧑‍🎓"; // Can be an emoji string OR a data:image/... base64 URL
+    // Auto-Draft Save in localStorage
+    const studentNameInput = document.getElementById('studentNameInput');
+    const reviewTitleInput = document.getElementById('reviewTitleInput');
 
-    // Helper: Compress image before saving to localStorage
-    function compressImageFile(file, maxWidth = 800, quality = 0.8) {
+    function loadDraft() {
+      const draft = JSON.parse(localStorage.getItem('student_review_draft') || '{}');
+      if (draft.name) studentNameInput.value = draft.name;
+      if (draft.title) reviewTitleInput.value = draft.title;
+    }
+
+    function saveDraft() {
+      localStorage.setItem('student_review_draft', JSON.stringify({
+        name: studentNameInput.value,
+        title: reviewTitleInput.value
+      }));
+    }
+
+    studentNameInput.addEventListener('input', saveDraft);
+    reviewTitleInput.addEventListener('input', saveDraft);
+    loadDraft();
+
+    // Compress Image Helper
+    function compressImageFile(file, maxWidth = 750, quality = 0.78) {
       return new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.onload = (e) => {
@@ -783,22 +516,38 @@
       });
     }
 
-    function updateAuthUI() {
-      if (isAdminLoggedIn) {
-        topAdminLoginBtn.style.display = "none";
-        topAdminBadge.style.display = "inline-block";
-        topAddReviewBtn.style.display = "inline-block";
+    // Listen to Firebase Auth state
+    onAuthStateChanged(auth, (user) => {
+      isLoggedIn = !!user;
+      if (isLoggedIn) {
+        topLoginBtn.style.display = "none";
+        topUserBadge.style.display = "inline-block";
+        topAddBtn.style.display = "inline-block";
         topLogoutBtn.style.display = "inline-block";
-        openAdminPanelBtn.style.display = "inline-block";
+        openFormBtn.style.display = "inline-block";
       } else {
-        topAdminLoginBtn.style.display = "inline-block";
-        topAdminBadge.style.display = "none";
-        topAddReviewBtn.style.display = "none";
+        topLoginBtn.style.display = "inline-block";
+        topUserBadge.style.display = "none";
+        topAddBtn.style.display = "none";
         topLogoutBtn.style.display = "none";
-        openAdminPanelBtn.style.display = "none";
-        adminPortalBox.style.display = "none";
+        openFormBtn.style.display = "none";
+        reviewPortalBox.style.display = "none";
       }
-    }
+    });
+
+    // Real-time Firestore Listener
+    const reviewsQuery = query(collection(db, "reviews"), orderBy("createdAt", "asc"));
+    onSnapshot(reviewsQuery, (snapshot) => {
+      reviewData = structuredClone(baseReviewData);
+      snapshot.forEach((docSnap) => {
+        const data = docSnap.data();
+        const y = String(data.year);
+        if (!reviewData[y]) reviewData[y] = [];
+        reviewData[y].push(data);
+      });
+      syncDropdownYears();
+      renderReviews(yearSelect.value);
+    });
 
     function syncDropdownYears(selectYear = null) {
       const years = Object.keys(reviewData)
@@ -817,28 +566,28 @@
       }
     }
 
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
     function renderReviews(year) {
       const list = reviewData[year] || [];
-      const isCustomYear = !baseReviewData[year];
-
-      reviewList.innerHTML = list.map((review, index) => {
+      reviewList.innerHTML = list.map((review) => {
         const safeName = escapeHtml(review.name);
         const safeTitle = escapeHtml(review.title);
         const safeComment = escapeHtml(review.comment || "");
         const avatarVal = review.avatar || "💬";
-
-        // Check if avatar is an uploaded image (starts with data:image) or an emoji
         const avatarHtml = avatarVal.startsWith("data:image")
           ? `<img src="${avatarVal}" alt="${safeName}">`
           : avatarVal;
 
-        const deleteBtnHtml = (isAdminLoggedIn && isCustomYear)
-          ? `<button type="button" class="delete-review-btn" data-year="${year}" data-index="${index}">🗑️ 削除</button>`
-          : "";
-
         return `
           <article class="review-card" data-photo="${review.photo}" data-title="${safeName} (${safeTitle})" data-comment="${safeComment}">
-            ${deleteBtnHtml}
             <div class="review-card-body">
               <span class="review-student-name">
                 <span class="review-avatar-badge">${avatarHtml}</span>
@@ -853,117 +602,79 @@
 
       document.querySelectorAll('.review-card').forEach(card => {
         card.addEventListener('click', () => {
-          openModal(card.dataset.photo, card.dataset.title, card.dataset.comment);
-        });
-      });
-
-      document.querySelectorAll('.delete-review-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const targetYear = btn.dataset.year;
-          const targetIdx = Number(btn.dataset.index);
-
-          reviewData[targetYear].splice(targetIdx, 1);
-          if (reviewData[targetYear].length === 0) {
-            delete reviewData[targetYear];
-            delete savedCustomReviews[targetYear];
-          } else {
-            savedCustomReviews[targetYear] = reviewData[targetYear];
-          }
-
-          localStorage.setItem('custom_student_reviews', JSON.stringify(savedCustomReviews));
-          syncDropdownYears(targetYear);
-          renderReviews(yearSelect.value);
+          openPhotoModal(card.dataset.photo, card.dataset.title, card.dataset.comment);
         });
       });
     }
 
-    function escapeHtml(str) {
-      return String(str)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    }
-
-    // Open / Close Top Login Modal
-    topAdminLoginBtn.addEventListener('click', () => {
+    // Login Modal Controls
+    topLoginBtn.addEventListener('click', () => {
       loginError.style.display = "none";
-      adminLoginModal.style.display = "flex";
-      document.getElementById('adminIdInput').focus();
+      loginModal.style.display = "flex";
     });
 
-    function closeLoginModal() {
-      adminLoginModal.style.display = "none";
-      loginError.style.display = "none";
-    }
+    window.closeLoginModal = () => {
+      loginModal.style.display = "none";
+    };
 
-    // Admin Login Submit
-    adminLoginForm.addEventListener('submit', (e) => {
+    firebaseLoginForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const inputId = document.getElementById('adminIdInput').value.trim();
-      const inputPass = document.getElementById('adminPasswordInput').value.trim();
+      const email = document.getElementById('loginEmailInput').value.trim();
+      const password = document.getElementById('loginPasswordInput').value.trim();
+      const btn = document.getElementById('loginSubmitBtn');
 
-      if (inputId === ADMIN_ID && inputPass === ADMIN_PASS) {
-        isAdminLoggedIn = true;
-        sessionStorage.setItem('admin_logged_in', 'true');
-        document.getElementById('adminPasswordInput').value = "";
+      btn.disabled = true;
+      btn.textContent = "ログイン中...";
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        document.getElementById('loginPasswordInput').value = "";
+        loginError.style.display = "none";
         closeLoginModal();
-        updateAuthUI();
-        renderReviews(yearSelect.value);
-      } else {
+      } catch (err) {
         loginError.style.display = "block";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "ログイン";
       }
     });
 
-    // Open Admin Form
-    function openAdminAddForm() {
-      if (!isAdminLoggedIn) return;
+    topLogoutBtn.addEventListener('click', async () => {
+      await signOut(auth);
+    });
+
+    function openFormBox() {
+      if (!isLoggedIn) return;
       yearErrorMsg.style.display = "none";
-      adminPortalBox.style.display = "block";
-      adminPortalBox.scrollIntoView({ behavior: "smooth", block: "center" });
+      saveSuccessMsg.style.display = "none";
+      reviewPortalBox.style.display = "block";
+      reviewPortalBox.scrollIntoView({ behavior: "smooth", block: "center" });
     }
 
-    topAddReviewBtn.addEventListener('click', openAdminAddForm);
-    openAdminPanelBtn.addEventListener('click', openAdminAddForm);
-
-    closePortalBtn.addEventListener('click', () => {
-      adminPortalBox.style.display = "none";
-      yearErrorMsg.style.display = "none";
+    topAddBtn.addEventListener('click', openFormBox);
+    openFormBtn.addEventListener('click', openFormBox);
+    closeFormBtn.addEventListener('click', () => {
+      reviewPortalBox.style.display = "none";
     });
 
-    // Admin Logout
-    topLogoutBtn.addEventListener('click', () => {
-      isAdminLoggedIn = false;
-      sessionStorage.removeItem('admin_logged_in');
-      updateAuthUI();
-      renderReviews(yearSelect.value);
-    });
-
-    // Year Select Dropdown
     yearSelect.addEventListener('change', () => {
       renderReviews(yearSelect.value);
     });
 
-    // Emoji Avatar Selection
+    // Avatar Selection
     document.querySelectorAll('.avatar-option').forEach(opt => {
       opt.addEventListener('click', () => {
         document.querySelectorAll('.avatar-option').forEach(el => el.classList.remove('selected'));
         avatarUploadLabel.classList.remove('selected');
         avatarPreviewImg.style.display = "none";
         avatarPhotoInput.value = "";
-
         opt.classList.add('selected');
         selectedAvatar = opt.dataset.avatar;
       });
     });
 
-    // Custom Avatar Photo Upload Selection
     avatarPhotoInput.addEventListener('change', async () => {
       if (!avatarPhotoInput.files || !avatarPhotoInput.files[0]) return;
-      const compressedAvatar = await compressImageFile(avatarPhotoInput.files[0], 160, 0.85);
-
+      const compressedAvatar = await compressImageFile(avatarPhotoInput.files[0], 140, 0.8);
       document.querySelectorAll('.avatar-option').forEach(el => el.classList.remove('selected'));
       avatarUploadLabel.classList.add('selected');
       avatarPreviewImg.src = compressedAvatar;
@@ -971,98 +682,81 @@
       selectedAvatar = compressedAvatar;
     });
 
-    function resetAvatarSelector() {
-      document.querySelectorAll('.avatar-option').forEach((el, idx) => {
-        el.classList.toggle('selected', idx === 0);
-      });
-      avatarUploadLabel.classList.remove('selected');
-      avatarPreviewImg.style.display = "none";
-      avatarPreviewImg.src = "";
-      avatarPhotoInput.value = "";
-      selectedAvatar = "🧑‍🎓";
-    }
-
-    document.getElementById('reviewYearInput').addEventListener('change', () => {
-      yearErrorMsg.style.display = "none";
-    });
-
-    // Admin Submit Review
+    // Submit Review -> Auto-Saves to Cloud Firestore
     reviewSubmitForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (!isAdminLoggedIn) return;
+      if (!isLoggedIn) return;
 
       const selectedYear = Number(document.getElementById('reviewYearInput').value);
-
       if (selectedYear > MAX_ALLOWED_YEAR) {
         yearErrorMsg.textContent = `※エラー：${selectedYear}年度はまだ来ていないため登録できません。（現在は${MAX_ALLOWED_YEAR}年度まで登録可能です）`;
         yearErrorMsg.style.display = "block";
         return;
       }
 
-      yearErrorMsg.style.display = "none";
-      const yearStr = String(selectedYear);
-      const exactName = document.getElementById('studentNameInput').value.trim();
-      const title = document.getElementById('reviewTitleInput').value.trim();
       const photoInput = document.getElementById('reviewPhotoInput');
-
       if (!photoInput.files || !photoInput.files[0]) return;
 
-      const compressedMainPhoto = await compressImageFile(photoInput.files[0], 900, 0.82);
+      yearErrorMsg.style.display = "none";
+      saveSuccessMsg.style.display = "none";
+      submitReviewBtn.disabled = true;
+      submitReviewBtn.textContent = "保存中...";
 
-      const newReview = {
-        avatar: selectedAvatar,
-        name: exactName,
-        title: title,
-        photo: compressedMainPhoto,
-        comment: ""
-      };
-
-      if (!reviewData[yearStr]) {
-        reviewData[yearStr] = [];
-      }
-      reviewData[yearStr].push(newReview);
-
-      savedCustomReviews[yearStr] = reviewData[yearStr];
       try {
-        localStorage.setItem('custom_student_reviews', JSON.stringify(savedCustomReviews));
-      } catch (err) {
-        console.warn("Storage limit exceeded, saved in current session only.");
-      }
+        const compressedPhoto = await compressImageFile(photoInput.files[0], 750, 0.78);
+        const yearStr = String(selectedYear);
 
-      syncDropdownYears(yearStr);
-      reviewSubmitForm.reset();
-      resetAvatarSelector();
-      document.getElementById('reviewYearInput').value = String(MAX_ALLOWED_YEAR);
-      renderReviews(yearStr);
+        await addDoc(collection(db, "reviews"), {
+          year: yearStr,
+          name: studentNameInput.value.trim(),
+          title: reviewTitleInput.value.trim(),
+          avatar: selectedAvatar,
+          photo: compressedPhoto,
+          comment: "",
+          createdAt: Date.now()
+        });
+
+        localStorage.removeItem('student_review_draft');
+        reviewSubmitForm.reset();
+        document.querySelectorAll('.avatar-option').forEach((el, i) => el.classList.toggle('selected', i === 0));
+        avatarUploadLabel.classList.remove('selected');
+        avatarPreviewImg.style.display = "none";
+        selectedAvatar = "🧑‍🎓";
+
+        syncDropdownYears(yearStr);
+        renderReviews(yearStr);
+        saveSuccessMsg.style.display = "block";
+      } catch (err) {
+        yearErrorMsg.textContent = "※保存に失敗しました。Firestoreのルールと通信環境を確認してください。";
+        yearErrorMsg.style.display = "block";
+      } finally {
+        submitReviewBtn.disabled = false;
+        submitReviewBtn.textContent = "OK（自動保存して公開）";
+      }
     });
 
-    // Photo Zoom Modal Functions
-    function openModal(imgSrc, titleText, captionText) {
+    // Photo Zoom Modal
+    window.openPhotoModal = (imgSrc, titleText, captionText) => {
       const modal = document.getElementById('photoModal');
-      const modalImg = document.getElementById('modalImg');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalCaption = document.getElementById('modalCaption');
-      
-      modal.style.display = 'flex';
-      modalImg.src = imgSrc;
-      modalTitle.textContent = titleText;
+      document.getElementById('modalImg').src = imgSrc;
+      document.getElementById('modalTitle').textContent = titleText;
+      const captionEl = document.getElementById('modalCaption');
       if (captionText) {
-        modalCaption.style.display = 'block';
-        modalCaption.textContent = "「 " + captionText + " 」";
+        captionEl.style.display = 'block';
+        captionEl.textContent = "「 " + captionText + " 」";
       } else {
-        modalCaption.style.display = 'none';
+        captionEl.style.display = 'none';
       }
-    }
+      modal.style.display = 'flex';
+    };
 
-    function closeModal() {
-      const modal = document.getElementById('photoModal');
-      modal.style.display = 'none';
-    }
+    window.closePhotoModal = () => {
+      document.getElementById('photoModal').style.display = 'none';
+    };
 
-    // Initialize
-    updateAuthUI();
+    // Initial render
     syncDropdownYears("2024");
-    renderReviews(yearSelect.value);
+    renderReviews("2024");
   </script>
 
 </body>
