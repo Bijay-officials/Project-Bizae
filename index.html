@@ -8,11 +8,79 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: "Helvetica Neue", Arial, sans-serif; line-height: 1.7; color: #333333; background-color: #f4f7f9; }
     
+    /* Top Admin Navigation Bar inside Hero */
     .hero {
+      position: relative;
       background-image: linear-gradient(rgba(0, 119, 182, 0.5), rgba(0, 180, 216, 0.5)), url('images/fuji.jpg');
       background-size: cover; background-position: center;
-      color: #ffffff; text-align: center; padding: 100px 20px;
+      color: #ffffff; text-align: center; padding: 110px 20px 100px;
     }
+    .top-admin-bar {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 100;
+    }
+    .top-btn-login {
+      background: rgba(255, 255, 255, 0.92);
+      color: #0077b6;
+      border: 1px solid #ffffff;
+      padding: 7px 15px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+    .top-btn-login:hover {
+      background: #ffffff;
+      transform: translateY(-1px);
+    }
+    .top-admin-badge {
+      display: none;
+      background: rgba(15, 23, 42, 0.75);
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    .top-btn-add {
+      display: none;
+      background: #0077b6;
+      color: #ffffff;
+      border: 1px solid #ffffff;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      transition: background 0.2s;
+    }
+    .top-btn-add:hover {
+      background: #005f92;
+    }
+    .top-btn-logout {
+      display: none;
+      background: rgba(220, 38, 38, 0.9);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      padding: 7px 12px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .top-btn-logout:hover {
+      background: #b91c1c;
+    }
+
     .hero-sub { font-size: 1.3rem; letter-spacing: 0.1em; opacity: 0.9; margin-bottom: 8px; }
     .hero-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 12px; }
     .hero-desc { font-size: 1.5rem; opacity: 0.95; }
@@ -70,17 +138,19 @@
 
     footer { text-align: center; padding: 25px 20px; background: #1e293b; color: #94a3b8; font-size: 0.85rem; }
 
-
     /* 参加者の感想 (2x2 Grid) */
     .reviews-section { margin: 60px auto 50px; max-width: 900px; }
     .review-select-container { 
-      text-align: center; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
       margin-bottom: 25px; 
     }
     .review-select-container label { 
       font-weight: bold; 
       color: #0077b6; 
-      margin-right: 10px; 
       font-size: 1rem; 
     }
     .review-year-select { 
@@ -91,8 +161,24 @@
       color: #0077b6; 
       background: #ffffff; 
       cursor: pointer; 
-      display: inline-block; 
-      vertical-align: middle;
+    }
+
+    /* Section Add Button (Visible ONLY After Admin Login) */
+    .btn-admin-panel {
+      display: none;
+      padding: 8px 18px;
+      background: #0077b6;
+      color: #ffffff;
+      border: 1px solid #0077b6;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-admin-panel:hover {
+      background: #005f92;
+      transform: translateY(-1px);
     }
 
     .review-grid { 
@@ -110,6 +196,7 @@
       display: flex;
       flex-direction: column;
       cursor: pointer;
+      position: relative;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .review-card:hover {
@@ -121,27 +208,234 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 10px;
     }
     .review-student-name {
       font-size: 0.95rem;
       color: #0077b6;
       font-weight: bold;
       white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .review-avatar-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: #e8f4f8;
+      border-radius: 50%;
+      font-size: 1.05rem;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1.5px solid #bae6fd;
+    }
+    .review-avatar-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     .review-topic-title { 
       color: #555555; 
       font-size: 0.9rem; 
       text-align: right;
-      font-weight: bold; /* ← Yaha bold thapne */
+      font-weight: bold;
     }
     .review-card-img {
       width: 100%;
       height: 180px;
       object-fit: cover;
     }
+    .delete-review-btn {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(220, 38, 38, 0.92);
+      color: #ffffff;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 5;
+    }
+    .delete-review-btn:hover {
+      background: #b91c1c;
+    }
     .review-note { text-align: center; color: #888888; font-size: 0.8rem; margin-top: 25px; }
 
-    /* Modal Popup for Spot Photo & Student Comment */
+    /* Admin Review Add Form Box */
+    .admin-portal-box {
+      max-width: 850px;
+      margin: 0 auto 30px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-top: 4px solid #0077b6;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      display: none;
+    }
+    .portal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e8f4f8;
+    }
+    .portal-title {
+      font-size: 1.15rem;
+      color: #1e293b;
+      font-weight: bold;
+    }
+    .admin-badge {
+      background: #0077b6;
+      color: #ffffff;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .close-btn {
+      background: #f1f5f9;
+      color: #475569;
+      border: 1px solid #cbd5e1;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .close-btn:hover { background: #e2e8f0; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      text-align: left;
+    }
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+    .form-group label {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #334155;
+    }
+    .form-control {
+      padding: 10px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: #0077b6;
+      box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.15);
+    }
+
+    /* Avatar Selector (Emoji + Custom Photo Upload) */
+    .avatar-selector-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .avatar-options {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .avatar-option {
+      width: 42px;
+      height: 42px;
+      border: 2px solid #e2e8f0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      cursor: pointer;
+      background: #f8fafc;
+      transition: all 0.2s;
+    }
+    .avatar-option.selected {
+      border-color: #0077b6;
+      background: #e0f2fe;
+      transform: scale(1.08);
+    }
+    .avatar-upload-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border: 2px dashed #0077b6;
+      border-radius: 20px;
+      background: #f0f9ff;
+      color: #0077b6;
+      font-size: 0.88rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .avatar-upload-btn:hover {
+      background: #e0f2fe;
+    }
+    .avatar-upload-btn.selected {
+      border-style: solid;
+      background: #0077b6;
+      color: #ffffff;
+    }
+    .avatar-preview-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #0077b6;
+      display: none;
+    }
+
+    .primary-btn {
+      background: #0077b6;
+      color: #ffffff;
+      border: none;
+      padding: 11px 28px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .primary-btn:hover { background: #005f92; }
+
+    .login-hint {
+      font-size: 0.82rem;
+      color: #64748b;
+    }
+    .error-msg {
+      color: #dc2626;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: bold;
+      margin-top: 10px;
+      display: none;
+      text-align: left;
+    }
+
+    /* Modal Popup */
     .modal {
       display: none;
       position: fixed;
@@ -165,6 +459,10 @@
       text-align: center;
       padding: 25px;
       position: relative;
+    }
+    .login-modal-content {
+      max-width: 440px;
+      text-align: left;
     }
     .modal-content img {
       width: 100%;
@@ -194,13 +492,24 @@
       line-height: 1.6;
     }
     
-    @media (max-width: 700px) { .review-grid { grid-template-columns: 1fr; } }
-
+    @media (max-width: 700px) {
+      .review-grid, .form-grid { grid-template-columns: 1fr; }
+      .form-group.full-width { grid-column: span 1; }
+      .top-admin-bar { top: 10px; right: 10px; gap: 6px; }
+    }
   </style>
 </head>
 <body>
 
   <header class="hero">
+    <!-- Top Right Admin Bar -->
+    <div class="top-admin-bar">
+      <button type="button" id="topAdminLoginBtn" class="top-btn-login">🔐 管理者ログイン</button>
+      <span id="topAdminBadge" class="top-admin-badge">👤 管理者ログイン中</span>
+      <button type="button" id="topAddReviewBtn" class="top-btn-add">✍️ 感想追加</button>
+      <button type="button" id="topLogoutBtn" class="top-btn-logout">ログアウト</button>
+    </div>
+
     <p class="hero-sub">中部コンピュータ・パティシエ専門学校秋の恒例行事</p>
     <h1 class="hero-title">清水・駿河湾クルーズ日帰り研修旅行</h1>
     <p class="hero-desc">日本の文化と歴史を学ぶ旅</p>
@@ -223,7 +532,6 @@
       <p style="text-align: center; margin-bottom: 25px; color: #666;">※各スポットをクリックすると、詳細ページが開きます。</p>
       
       <div class="spots-grid">
-
         <!-- スポット 1 -->
         <a href="detail1.html" class="spot-card">
           <span class="spot-tag">グルメ & ショッピング</span>
@@ -267,7 +575,6 @@
             <span class="spot-link">Clickして詳細へ ➔</span>
           </div>
         </a>
-
       </div>
     </section>
 
@@ -276,54 +583,106 @@
       <h2 class="section-title">参加者の感想</h2>
       
       <div class="review-select-container">
-        <label for="review-year-select">年度を選択：</label>
-        <select id="review-year-select" class="review-year-select">
-          <option value="2024">2024年</option>
-          <option value="2025">2025年</option>
-          <option value="2026">2026年</option>
-        </select>
+        <div>
+          <label for="review-year-select">年度を選択：</label>
+          <select id="review-year-select" class="review-year-select">
+            <option value="2024">2024年</option>
+            <option value="2025">2025年</option>
+            <option value="2026">2026年</option>
+          </select>
+        </div>
+
+        <!-- Visible ONLY after admin logs in -->
+        <button type="button" id="openAdminPanelBtn" class="btn-admin-panel">✍️ 感想を追加（管理者）</button>
+      </div>
+
+      <!-- Admin Review Add Form Box (Only accessible when admin is logged in) -->
+      <div id="adminPortalBox" class="admin-portal-box">
+        <div class="portal-header">
+          <span class="portal-title">✍️ 学生の感想を登録 <span class="admin-badge">管理者モード</span></span>
+          <button type="button" id="closePortalBtn" class="close-btn">閉じる</button>
+        </div>
+        <form id="reviewSubmitForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="reviewYearInput">参加年度 (Year)</label>
+              <select id="reviewYearInput" class="form-control" required>
+                <option value="2027" selected>2027年</option>
+                <option value="2028">2028年</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="studentNameInput">名前 (Name)</label>
+              <input type="text" id="studentNameInput" class="form-control" placeholder="例: タナカ" required>
+            </div>
+            <div class="form-group">
+              <label for="reviewTitleInput">タイトル (Title)</label>
+              <input type="text" id="reviewTitleInput" class="form-control" placeholder="例: 駿河湾クルーズと富士山" required>
+            </div>
+            <div class="form-group">
+              <label for="reviewPhotoInput">思い出の写真 (Photo)</label>
+              <input type="file" id="reviewPhotoInput" class="form-control" accept="image/*" required>
+            </div>
+            <div class="form-group full-width">
+              <label>アバター選択 (Avatar：アイコン または 自分の写真)</label>
+              <div class="avatar-selector-row">
+                <div class="avatar-options" id="avatarOptions">
+                  <div class="avatar-option selected" data-avatar="🧑‍🎓">🧑‍🎓</div>
+                  <div class="avatar-option" data-avatar="👩‍🎓">👩‍🎓</div>
+                  <div class="avatar-option" data-avatar="😊">😊</div>
+                  <div class="avatar-option" data-avatar="🚢">🚢</div>
+                  <div class="avatar-option" data-avatar="🗻">🗻</div>
+                  <div class="avatar-option" data-avatar="📸">📸</div>
+                </div>
+
+                <!-- Custom Avatar Photo Upload -->
+                <label for="avatarPhotoInput" id="avatarUploadLabel" class="avatar-upload-btn">
+                  📷 自分の写真を使う
+                </label>
+                <input type="file" id="avatarPhotoInput" accept="image/*" style="display: none;">
+                <img id="avatarPreviewImg" class="avatar-preview-circle" src="" alt="アバタープレビュー">
+              </div>
+            </div>
+          </div>
+          <p id="yearErrorMsg" class="error-msg"></p>
+          <div style="margin-top: 16px; text-align: right;">
+            <button type="submit" class="primary-btn">OK（登録する）</button>
+          </div>
+        </form>
       </div>
 
       <div class="review-grid" id="review-list" aria-live="polite">
-        <!-- 2024 Default Items -->
-        <article class="review-card" onclick="openModal('images/2024 students/vihara.webp', 'ビハラさんの感想 (クルーズから見る富士山)', 'クルーズから見る富士山がとてもきれいで、忘れられない思い出になりました。')">
-          <div class="review-card-body">
-            <span class="review-student-name">💬 ビハラさん</span>
-            <span class="review-topic-title">クルーズから見る富士山</span>
-          </div>
-          <img src="images/2024 students/vihara.webp" alt="富士山とクルーズ" class="review-card-img">
-        </article>
-
-        <article class="review-card" onclick="openModal('images/2024 students/afuka.webp', 'アフカさんの感想 (おいしいランチ)', '友達と一緒においしいランチを食べたり、写真を撮ったりできて楽しかったです。')">
-          <div class="review-card-body">
-            <span class="review-student-name">💬 アフカさん</span>
-            <span class="review-topic-title">おいしいランチと写真撮影</span>
-          </div>
-          <img src="images/2024 students/afuka.webp" alt="ランチ" class="review-card-img">
-        </article>
-
-        <article class="review-card" onclick="openModal('images/2024 students/karki.webp', 'カルキさんの感想 (歴史や文化の見学)', '三保の松原と久能山東照宮を見学して、日本の歴史や文化を学ぶことができました。')">
-          <div class="review-card-body">
-            <span class="review-student-name">💬 カルキさん</span>
-            <span class="review-topic-title">三保の松原と久能山東照宮の見学</span>
-          </div>
-          <img src="images/2024 students/karki.webp" alt="三保の松原" class="review-card-img">
-        </article>
-
-        <article class="review-card" onclick="openModal('images/2024 students/sharma.webp', 'サルマさんの感想 (バスの中の雰囲気)', 'バスの中の雰囲気も良く、クラスメイトみんなと仲良くなれる最高の行事でした。')">
-          <div class="review-card-body">
-            <span class="review-student-name">💬 サルマさん</span>
-            <span class="review-topic-title">バスの中の雰囲気とクラスメイト</span>
-          </div>
-          <img src="images/2024 students/sharma.webp" alt="久能山東照宮" class="review-card-img">
-        </article>
+        <!-- Loaded via JS -->
       </div>
-      <p class="review-note">※見どころの写真をクリックすると、学生たちの感想（コメント）が大きく表示されます。</p>
+      <p class="review-note">※見どころの写真をクリックすると、写真とタイトルが大きく表示されます。</p>
     </section>
 
   </div>
 
-  <!-- Modal Popup Box -->
+  <!-- Admin Login Modal Popup (Triggered from Top Header) -->
+  <div id="adminLoginModal" class="modal" onclick="closeLoginModal()">
+    <div class="modal-content login-modal-content" onclick="event.stopPropagation()">
+      <span class="modal-close" onclick="closeLoginModal()">&times;</span>
+      <h3 class="modal-title" style="margin-bottom: 16px;"></h3>
+      <form id="adminLoginForm">
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label for="adminIdInput">管理者ID</label>
+          <input type="text" id="adminIdInput" class="form-control" placeholder="管理者IDを入力" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 10px;">
+          <label for="adminPasswordInput">パスワード</label>
+          <input type="password" id="adminPasswordInput" class="form-control" placeholder="パスワードを入力" required>
+        </div>
+        <p id="loginError" class="error-msg">※管理者IDまたはパスワードが正しくありません。</p>
+        <div style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+          <span class="login-hint">ID: <strong>admin</strong> / PW: <strong>admin2027</strong></span>
+          <button type="submit" class="primary-btn">ログイン</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Popup Box for Photo Zoom -->
   <div id="photoModal" class="modal" onclick="closeModal()">
     <div class="modal-content" onclick="event.stopPropagation()">
       <span class="modal-close" onclick="closeModal()">&times;</span>
@@ -338,47 +697,346 @@
     <p style="margin-top: 4px;">企画手配：株式会社 第一観光</p>
   </footer>
 
-
   <script>
-    const reviewData = {
+    const MAX_ALLOWED_YEAR = 2027;
+    const ADMIN_ID = "admin";
+    const ADMIN_PASS = "admin2027";
+
+    const savedCustomReviews = JSON.parse(localStorage.getItem('custom_student_reviews') || '{}');
+
+    const baseReviewData = {
       "2024": [
-        { photo: "images/2024 students/vihara.webp", title: "クルーズから見る富士山", name: "ビハラさん", comment: "クルーズから見る富士山がとてもきれいで、忘れられない思い出になりました。" },
-        { photo: "images/2024 students/afuka.webp", title: "おいしいランチと写真撮影", name: "アフカさん", comment: "友達と一緒においしいランチを食べたり、写真を撮ったりできて楽しかったです。" },
-        { photo: "images/2024 students/karki.webp", title: "三保の松原と久能山東照宮の見学", name: "カルキさん", comment: "三保の松原と久能山東照宮を見学して、日本の歴史や文化を学ぶことができました。" },
-        { photo: "images/2024 students/sharma.webp", title: "バスの中の雰囲気とクラスメイト", name: "サルマさん", comment: "バスの中の雰囲気も良く、クラスメイトみんなと仲良くなれる最高の行事でした。" }
+        { avatar: "💬", photo: "images/2024 students/vihara.webp", title: "クルーズから見る富士山", name: "ビハラさん", comment: "クルーズから見る富士山がとてもきれいで、忘れられない思い出になりました。" },
+        { avatar: "💬", photo: "images/2024 students/afuka.webp", title: "おいしいランチと写真撮影", name: "アフカさん", comment: "友達と一緒においしいランチを食べたり、写真を撮ったりできて楽しかったです。" },
+        { avatar: "💬", photo: "images/2024 students/karki.webp", title: "三保の松原と久能山東照宮の見学", name: "カルキさん", comment: "三保の松原と久能山東照宮を見学して、日本の歴史や文化を学ぶことができました。" },
+        { avatar: "💬", photo: "images/2024 students/sharma.webp", title: "バスの中の雰囲気とクラスメイト", name: "サルマさん", comment: "バスの中の雰囲気も良く、クラスメイトみんなと仲良くなれる最高の行事でした。" }
       ],
       "2025": [
-        { photo: "images/2025 students/ayau.webp", title: "船の上からの景色", name: "アユさん", comment: "船の上から見る景色が最高でした。海風も気持ちよく、また参加したいです。" },
-        { photo: "images/2025 students/khadka.webp", title: "友達との思い出", name: "カドカさん", comment: "普段なかなか行けない場所を友達と一緒に回れて、とても充実した一日でした。" },
-        { photo: "images/2025 students/karishma.webp", title: "久能山東照宮の建物", name: "カリスマさん", comment: "久能山東照宮の建物が美しく、日本の歴史に興味を持つきっかけになりました。" },
-        { photo: "images/2025 students/sapana.webp", title: "写真スポットでの思い出", name: "サパナさん", comment: "写真スポットがたくさんあって、思い出に残るすばらしい一日になりました。" }
+        { avatar: "💬", photo: "images/2025 students/ayau.webp", title: "船の上からの景色", name: "アユさん", comment: "船の上から見る景色が最高でした。海風も気持ちよく、また参加したいです。" },
+        { avatar: "💬", photo: "images/2025 students/khadka.webp", title: "友達との思い出", name: "カドカさん", comment: "普段なかなか行けない場所を友達と一緒に回れて、とても充実した一日でした。" },
+        { avatar: "💬", photo: "images/2025 students/karishma.webp", title: "久能山東照宮の建物", name: "カリスマさん", comment: "久能山東照宮の建物が美しく、日本の歴史に興味を持つきっかけになりました。" },
+        { avatar: "💬", photo: "images/2025 students/sapana.webp", title: "写真スポットでの思い出", name: "サパナさん", comment: "写真スポットがたくさんあって、思い出に残るすばらしい一日になりました。" }
       ],
       "2026": [
-        { photo: "images/2026 students/kumari.webp", title: "駿河湾クルーズと富士山", name: "クマリさん", comment: "駿河湾クルーズで富士山を見ることができて感動しました。写真もたくさん撮れました。" },
-        { photo: "images/2026 students/sangita.webp", title: "ランチタイムの会話", name: "サンギタさん", comment: "はとばキッチンのランチがおいしく、友達との会話も弾んで楽しかったです。" },
-        { photo: "images/2026 students/gc.webp", title: "研修旅行の感想", name: "ジシさん", comment: "美しい景色と歴史ある場所の両方を楽しめて、思い出に残る研修旅行になりました。" },
-        { photo: "images/2026 students/dan.webp", title: "最高の景色と思い出", name: "ダンさん", comment: "天気に恵まれて最高の景色でした！友達と最高の思い出が作れて大満足です。" }
+        { avatar: "💬", photo: "images/2026 students/kumari.webp", title: "駿河湾クルーズと富士山", name: "クマリさん", comment: "駿河湾クルーズで富士山を見ることができて感動しました。写真もたくさん撮れました。" },
+        { avatar: "💬", photo: "images/2026 students/sangita.webp", title: "ランチタイムの会話", name: "サンギタさん", comment: "はとばキッチンのランチがおいしく、友達との会話も弾んで楽しかったです。" },
+        { avatar: "💬", photo: "images/2026 students/gc.webp", title: "研修旅行の感想", name: "ジシさん", comment: "美しい景色と歴史ある場所の両方を楽しめて、思い出に残る研修旅行になりました。" },
+        { avatar: "💬", photo: "images/2026 students/dan.webp", title: "最高の景色と思い出", name: "ダンさん", comment: "天気に恵まれて最高の景色でした！友達と最高の思い出が作れて大満足です。" }
       ]
     };
 
+    const reviewData = {
+      ...baseReviewData,
+      ...savedCustomReviews
+    };
+
+    // Elements
     const yearSelect = document.getElementById('review-year-select');
+    const topAdminLoginBtn = document.getElementById('topAdminLoginBtn');
+    const topAdminBadge = document.getElementById('topAdminBadge');
+    const topAddReviewBtn = document.getElementById('topAddReviewBtn');
+    const topLogoutBtn = document.getElementById('topLogoutBtn');
+    const openAdminPanelBtn = document.getElementById('openAdminPanelBtn');
+
+    const adminLoginModal = document.getElementById('adminLoginModal');
+    const adminLoginForm = document.getElementById('adminLoginForm');
+    const loginError = document.getElementById('loginError');
+
+    const adminPortalBox = document.getElementById('adminPortalBox');
+    const closePortalBtn = document.getElementById('closePortalBtn');
+    const reviewSubmitForm = document.getElementById('reviewSubmitForm');
+    const yearErrorMsg = document.getElementById('yearErrorMsg');
     const reviewList = document.getElementById('review-list');
 
-    yearSelect.addEventListener('change', () => {
-      const year = yearSelect.value;
-      
-      reviewList.innerHTML = reviewData[year].map((review) => `
-        <article class="review-card" onclick="openModal('${review.photo}', '${review.name}の感想 (${review.title})', '${review.comment}')">
-          <div class="review-card-body">
-            <span class="review-student-name">💬 ${review.name}</span>
-            <span class="review-topic-title">${review.title}</span>
-          </div>
-          <img src="${review.photo}" alt="${review.title}" class="review-card-img">
-        </article>
-      `).join('');
+    const avatarPhotoInput = document.getElementById('avatarPhotoInput');
+    const avatarUploadLabel = document.getElementById('avatarUploadLabel');
+    const avatarPreviewImg = document.getElementById('avatarPreviewImg');
+
+    let isAdminLoggedIn = sessionStorage.getItem('admin_logged_in') === 'true';
+    let selectedAvatar = "🧑‍🎓"; // Can be an emoji string OR a data:image/... base64 URL
+
+    // Helper: Compress image before saving to localStorage
+    function compressImageFile(file, maxWidth = 800, quality = 0.8) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            let width = img.width;
+            let height = img.height;
+            if (width > maxWidth) {
+              height = Math.round((height * maxWidth) / width);
+              width = maxWidth;
+            }
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+            resolve(canvas.toDataURL('image/jpeg', quality));
+          };
+          img.onerror = reject;
+          img.src = e.target.result;
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function updateAuthUI() {
+      if (isAdminLoggedIn) {
+        topAdminLoginBtn.style.display = "none";
+        topAdminBadge.style.display = "inline-block";
+        topAddReviewBtn.style.display = "inline-block";
+        topLogoutBtn.style.display = "inline-block";
+        openAdminPanelBtn.style.display = "inline-block";
+      } else {
+        topAdminLoginBtn.style.display = "inline-block";
+        topAdminBadge.style.display = "none";
+        topAddReviewBtn.style.display = "none";
+        topLogoutBtn.style.display = "none";
+        openAdminPanelBtn.style.display = "none";
+        adminPortalBox.style.display = "none";
+      }
+    }
+
+    function syncDropdownYears(selectYear = null) {
+      const years = Object.keys(reviewData)
+        .filter(y => reviewData[y] && reviewData[y].length > 0)
+        .sort((a, b) => Number(a) - Number(b));
+
+      const currentVal = selectYear || yearSelect.value;
+      yearSelect.innerHTML = years
+        .map(y => `<option value="${y}">${y}年</option>`)
+        .join('');
+
+      if (years.includes(String(currentVal))) {
+        yearSelect.value = String(currentVal);
+      } else {
+        yearSelect.value = "2024";
+      }
+    }
+
+    function renderReviews(year) {
+      const list = reviewData[year] || [];
+      const isCustomYear = !baseReviewData[year];
+
+      reviewList.innerHTML = list.map((review, index) => {
+        const safeName = escapeHtml(review.name);
+        const safeTitle = escapeHtml(review.title);
+        const safeComment = escapeHtml(review.comment || "");
+        const avatarVal = review.avatar || "💬";
+
+        // Check if avatar is an uploaded image (starts with data:image) or an emoji
+        const avatarHtml = avatarVal.startsWith("data:image")
+          ? `<img src="${avatarVal}" alt="${safeName}">`
+          : avatarVal;
+
+        const deleteBtnHtml = (isAdminLoggedIn && isCustomYear)
+          ? `<button type="button" class="delete-review-btn" data-year="${year}" data-index="${index}">🗑️ 削除</button>`
+          : "";
+
+        return `
+          <article class="review-card" data-photo="${review.photo}" data-title="${safeName} (${safeTitle})" data-comment="${safeComment}">
+            ${deleteBtnHtml}
+            <div class="review-card-body">
+              <span class="review-student-name">
+                <span class="review-avatar-badge">${avatarHtml}</span>
+                ${safeName}
+              </span>
+              <span class="review-topic-title">${safeTitle}</span>
+            </div>
+            <img src="${review.photo}" alt="${safeTitle}" class="review-card-img">
+          </article>
+        `;
+      }).join('');
+
+      document.querySelectorAll('.review-card').forEach(card => {
+        card.addEventListener('click', () => {
+          openModal(card.dataset.photo, card.dataset.title, card.dataset.comment);
+        });
+      });
+
+      document.querySelectorAll('.delete-review-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const targetYear = btn.dataset.year;
+          const targetIdx = Number(btn.dataset.index);
+
+          reviewData[targetYear].splice(targetIdx, 1);
+          if (reviewData[targetYear].length === 0) {
+            delete reviewData[targetYear];
+            delete savedCustomReviews[targetYear];
+          } else {
+            savedCustomReviews[targetYear] = reviewData[targetYear];
+          }
+
+          localStorage.setItem('custom_student_reviews', JSON.stringify(savedCustomReviews));
+          syncDropdownYears(targetYear);
+          renderReviews(yearSelect.value);
+        });
+      });
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    // Open / Close Top Login Modal
+    topAdminLoginBtn.addEventListener('click', () => {
+      loginError.style.display = "none";
+      adminLoginModal.style.display = "flex";
+      document.getElementById('adminIdInput').focus();
     });
 
-    // Modal Functions
+    function closeLoginModal() {
+      adminLoginModal.style.display = "none";
+      loginError.style.display = "none";
+    }
+
+    // Admin Login Submit
+    adminLoginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const inputId = document.getElementById('adminIdInput').value.trim();
+      const inputPass = document.getElementById('adminPasswordInput').value.trim();
+
+      if (inputId === ADMIN_ID && inputPass === ADMIN_PASS) {
+        isAdminLoggedIn = true;
+        sessionStorage.setItem('admin_logged_in', 'true');
+        document.getElementById('adminPasswordInput').value = "";
+        closeLoginModal();
+        updateAuthUI();
+        renderReviews(yearSelect.value);
+      } else {
+        loginError.style.display = "block";
+      }
+    });
+
+    // Open Admin Form
+    function openAdminAddForm() {
+      if (!isAdminLoggedIn) return;
+      yearErrorMsg.style.display = "none";
+      adminPortalBox.style.display = "block";
+      adminPortalBox.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    topAddReviewBtn.addEventListener('click', openAdminAddForm);
+    openAdminPanelBtn.addEventListener('click', openAdminAddForm);
+
+    closePortalBtn.addEventListener('click', () => {
+      adminPortalBox.style.display = "none";
+      yearErrorMsg.style.display = "none";
+    });
+
+    // Admin Logout
+    topLogoutBtn.addEventListener('click', () => {
+      isAdminLoggedIn = false;
+      sessionStorage.removeItem('admin_logged_in');
+      updateAuthUI();
+      renderReviews(yearSelect.value);
+    });
+
+    // Year Select Dropdown
+    yearSelect.addEventListener('change', () => {
+      renderReviews(yearSelect.value);
+    });
+
+    // Emoji Avatar Selection
+    document.querySelectorAll('.avatar-option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        document.querySelectorAll('.avatar-option').forEach(el => el.classList.remove('selected'));
+        avatarUploadLabel.classList.remove('selected');
+        avatarPreviewImg.style.display = "none";
+        avatarPhotoInput.value = "";
+
+        opt.classList.add('selected');
+        selectedAvatar = opt.dataset.avatar;
+      });
+    });
+
+    // Custom Avatar Photo Upload Selection
+    avatarPhotoInput.addEventListener('change', async () => {
+      if (!avatarPhotoInput.files || !avatarPhotoInput.files[0]) return;
+      const compressedAvatar = await compressImageFile(avatarPhotoInput.files[0], 160, 0.85);
+
+      document.querySelectorAll('.avatar-option').forEach(el => el.classList.remove('selected'));
+      avatarUploadLabel.classList.add('selected');
+      avatarPreviewImg.src = compressedAvatar;
+      avatarPreviewImg.style.display = "inline-block";
+      selectedAvatar = compressedAvatar;
+    });
+
+    function resetAvatarSelector() {
+      document.querySelectorAll('.avatar-option').forEach((el, idx) => {
+        el.classList.toggle('selected', idx === 0);
+      });
+      avatarUploadLabel.classList.remove('selected');
+      avatarPreviewImg.style.display = "none";
+      avatarPreviewImg.src = "";
+      avatarPhotoInput.value = "";
+      selectedAvatar = "🧑‍🎓";
+    }
+
+    document.getElementById('reviewYearInput').addEventListener('change', () => {
+      yearErrorMsg.style.display = "none";
+    });
+
+    // Admin Submit Review
+    reviewSubmitForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!isAdminLoggedIn) return;
+
+      const selectedYear = Number(document.getElementById('reviewYearInput').value);
+
+      if (selectedYear > MAX_ALLOWED_YEAR) {
+        yearErrorMsg.textContent = `※エラー：${selectedYear}年度はまだ来ていないため登録できません。（現在は${MAX_ALLOWED_YEAR}年度まで登録可能です）`;
+        yearErrorMsg.style.display = "block";
+        return;
+      }
+
+      yearErrorMsg.style.display = "none";
+      const yearStr = String(selectedYear);
+      const exactName = document.getElementById('studentNameInput').value.trim();
+      const title = document.getElementById('reviewTitleInput').value.trim();
+      const photoInput = document.getElementById('reviewPhotoInput');
+
+      if (!photoInput.files || !photoInput.files[0]) return;
+
+      const compressedMainPhoto = await compressImageFile(photoInput.files[0], 900, 0.82);
+
+      const newReview = {
+        avatar: selectedAvatar,
+        name: exactName,
+        title: title,
+        photo: compressedMainPhoto,
+        comment: ""
+      };
+
+      if (!reviewData[yearStr]) {
+        reviewData[yearStr] = [];
+      }
+      reviewData[yearStr].push(newReview);
+
+      savedCustomReviews[yearStr] = reviewData[yearStr];
+      try {
+        localStorage.setItem('custom_student_reviews', JSON.stringify(savedCustomReviews));
+      } catch (err) {
+        console.warn("Storage limit exceeded, saved in current session only.");
+      }
+
+      syncDropdownYears(yearStr);
+      reviewSubmitForm.reset();
+      resetAvatarSelector();
+      document.getElementById('reviewYearInput').value = String(MAX_ALLOWED_YEAR);
+      renderReviews(yearStr);
+    });
+
+    // Photo Zoom Modal Functions
     function openModal(imgSrc, titleText, captionText) {
       const modal = document.getElementById('photoModal');
       const modalImg = document.getElementById('modalImg');
@@ -388,13 +1046,23 @@
       modal.style.display = 'flex';
       modalImg.src = imgSrc;
       modalTitle.textContent = titleText;
-      modalCaption.textContent = "「 " + captionText + " 」";
+      if (captionText) {
+        modalCaption.style.display = 'block';
+        modalCaption.textContent = "「 " + captionText + " 」";
+      } else {
+        modalCaption.style.display = 'none';
+      }
     }
 
     function closeModal() {
       const modal = document.getElementById('photoModal');
       modal.style.display = 'none';
     }
+
+    // Initialize
+    updateAuthUI();
+    syncDropdownYears("2024");
+    renderReviews(yearSelect.value);
   </script>
 
 </body>
