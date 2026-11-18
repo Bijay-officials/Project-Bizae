@@ -15,62 +15,33 @@
       color: #ffffff; text-align: center; padding: 110px 20px 100px;
     }
     .top-auth-bar {
-      position: absolute;
-      top: 16px;
-      right: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      z-index: 100;
+      position: absolute; top: 16px; right: 20px; display: flex; align-items: center; gap: 10px; z-index: 100;
     }
-    .top-btn-login {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.95);
-      border: 1.5px solid #ffffff;
-      font-size: 1.35rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
-      transition: transform 0.2s ease, background 0.2s ease;
+    .top-icon-btn {
+      width: 42px; height: 42px; border-radius: 50%; background: rgba(255, 255, 255, 0.95);
+      border: 1.5px solid #ffffff; font-size: 1.3rem; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18); transition: transform 0.2s ease, background 0.2s ease;
     }
-    .top-btn-login:hover {
-      background: #ffffff;
-      transform: scale(1.08);
+    .top-icon-btn:hover { background: #ffffff; transform: scale(1.08); }
+    .top-icon-btn.admin-icon-btn {
+      background: rgba(30, 41, 59, 0.92);
+      border-color: rgba(255, 255, 255, 0.85);
     }
+    .top-icon-btn.admin-icon-btn:hover { background: #0f172a; }
+
     .top-user-badge {
-      display: none;
-      background: rgba(15, 23, 42, 0.78);
-      color: #ffffff;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: bold;
+      display: none; background: rgba(15, 23, 42, 0.82); color: #ffffff;
+      padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;
     }
+    .top-user-badge.admin-mode { background: #b45309; }
     .top-btn-add {
-      display: none;
-      background: #0077b6;
-      color: #ffffff;
-      border: 1px solid #ffffff;
-      padding: 7px 14px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: bold;
-      cursor: pointer;
+      display: none; background: #0077b6; color: #ffffff; border: 1px solid #ffffff;
+      padding: 7px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; cursor: pointer;
     }
     .top-btn-logout {
-      display: none;
-      background: rgba(220, 38, 38, 0.9);
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      padding: 7px 12px;
-      border-radius: 20px;
-      font-size: 0.82rem;
-      font-weight: bold;
-      cursor: pointer;
+      display: none; background: rgba(220, 38, 38, 0.9); color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.6); padding: 7px 12px; border-radius: 20px;
+      font-size: 0.82rem; font-weight: bold; cursor: pointer;
     }
 
     .hero-sub { font-size: 1.3rem; letter-spacing: 0.1em; opacity: 0.9; margin-bottom: 8px; }
@@ -82,17 +53,12 @@
     .section-title::after { content: ""; display: block; width: 50px; height: 3px; background: #00b4d8; margin: 10px auto 0; border-radius: 2px; }
 
     .spots-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-      max-width: 850px;
-      margin: 0 auto 50px;
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; max-width: 850px; margin: 0 auto 50px;
     }
     .spot-card {
       background: #ffffff; border-radius: 12px; overflow: hidden;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06); display: flex; flex-direction: column;
-      min-height: 400px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: pointer; text-decoration: none; color: inherit;
+      min-height: 400px; transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: pointer; text-decoration: none; color: inherit;
     }
     .spot-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); }
     .spot-tag { background: #0077b6; color: #ffffff; font-size: 0.8rem; font-weight: bold; padding: 4px 12px; align-self: flex-start; margin: 16px 0 0 16px; border-radius: 20px; }
@@ -118,22 +84,15 @@
       padding: 8px 16px; border: 1px solid #0077b6; border-radius: 8px; font-size: 1rem; color: #0077b6; background: #ffffff; cursor: pointer; 
     }
     .btn-open-form {
-      display: none;
-      padding: 8px 18px;
-      background: #0077b6;
-      color: #ffffff;
-      border: 1px solid #0077b6;
-      border-radius: 8px;
-      font-size: 0.92rem;
-      font-weight: bold;
-      cursor: pointer;
+      display: none; padding: 8px 18px; background: #0077b6; color: #ffffff;
+      border: 1px solid #0077b6; border-radius: 8px; font-size: 0.92rem; font-weight: bold; cursor: pointer;
     }
 
     .review-grid { 
       display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; max-width: 850px; margin: 0 auto;
     }
     .review-card { 
-      background: #ffffff; border-radius: 12px; overflow: hidden;
+      background: #ffffff; border-radius: 12px; overflow: hidden; position: relative;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06); display: flex; flex-direction: column; cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
@@ -147,20 +106,55 @@
     .review-avatar-badge img { width: 100%; height: 100%; object-fit: cover; }
     .review-topic-title { color: #555555; font-size: 0.9rem; text-align: right; font-weight: bold; }
     .review-card-img { width: 100%; height: 180px; object-fit: cover; }
-    .review-note { text-align: center; color: #888888; font-size: 0.8rem; margin-top: 25px; }
 
-    /* Form Box */
+    /* Admin Delete Button on Cards */
+    .admin-delete-card-btn {
+      position: absolute; bottom: 10px; right: 10px; background: rgba(220, 38, 38, 0.92); color: #ffffff;
+      border: none; padding: 5px 11px; border-radius: 6px; font-size: 0.78rem; font-weight: bold; cursor: pointer; z-index: 5;
+    }
+    .admin-delete-card-btn:hover { background: #991b1b; }
+
+    /* Portal Boxes */
     .portal-box {
       max-width: 850px; margin: 0 auto 30px; background: #ffffff; border: 1px solid #cbd5e1;
       border-top: 4px solid #0077b6; border-radius: 12px; padding: 24px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); display: none;
     }
+    .admin-panel-box { border-top-color: #d97706; background: #fffbeb; }
     .portal-header {
       display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;
       padding-bottom: 10px; border-bottom: 2px solid #e8f4f8;
     }
-    .portal-title { font-size: 1.15rem; color: #1e293b; font-weight: bold; }
+    .portal-title { font-size: 1.12rem; color: #1e293b; font-weight: bold; }
     .close-btn { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; padding: 5px 12px; border-radius: 6px; font-size: 0.85rem; cursor: pointer; }
+
+    /* Admin Moderation Items */
+    .admin-sub-section { margin-bottom: 22px; }
+    .admin-sub-section:last-child { margin-bottom: 0; }
+    .admin-sub-title { font-size: 1rem; font-weight: bold; color: #92400e; margin-bottom: 10px; }
+    .admin-sub-title.approved-sub-title { color: #166534; }
+    .pending-list { display: flex; flex-direction: column; gap: 10px; }
+    .pending-item {
+      background: #ffffff; border: 1px solid #fde68a; border-radius: 10px; padding: 12px 14px;
+      display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: wrap;
+    }
+    .pending-item.approved-student-item {
+      border-color: #bbf7d0;
+    }
+    .pending-info { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 220px; }
+    .pending-meta h4 { font-size: 0.96rem; color: #1e293b; }
+    .pending-meta p { font-size: 0.84rem; color: #64748b; }
+    .pending-actions { display: flex; gap: 8px; }
+    .btn-approve {
+      background: #16a34a; color: #ffffff; border: none; padding: 7px 14px; border-radius: 6px;
+      font-size: 0.85rem; font-weight: bold; cursor: pointer;
+    }
+    .btn-approve:hover { background: #15803d; }
+    .btn-reject {
+      background: #dc2626; color: #ffffff; border: none; padding: 7px 14px; border-radius: 6px;
+      font-size: 0.85rem; font-weight: bold; cursor: pointer;
+    }
+    .btn-reject:hover { background: #b91c1c; }
 
     .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
     .form-group { display: flex; flex-direction: column; gap: 6px; text-align: left; }
@@ -186,8 +180,32 @@
     .primary-btn {
       background: #0077b6; color: #ffffff; border: none; padding: 11px 28px;
       border-radius: 8px; font-size: 1rem; font-weight: bold; cursor: pointer;
+      transition: all 0.25s ease;
     }
+    .primary-btn.admin-submit-btn { background: #1e293b; }
+    .primary-btn.admin-submit-btn:hover { background: #0f172a; }
     .primary-btn:disabled { background: #94a3b8; cursor: not-allowed; }
+
+    .proceed-login-btn {
+      width: 100%; padding: 12px; border: none; border-radius: 8px;
+      font-size: 1rem; font-weight: bold; margin-top: 12px; transition: all 0.3s ease;
+    }
+    .proceed-login-btn:disabled {
+      background: #cbd5e1; color: #64748b; opacity: 0.55; cursor: not-allowed; box-shadow: none;
+    }
+    .proceed-login-btn:not(:disabled) {
+      background: #16a34a; color: #ffffff; opacity: 1; cursor: pointer;
+      box-shadow: 0 4px 12px rgba(22, 163, 74, 0.35);
+    }
+    .proceed-login-btn:not(:disabled):hover { background: #15803d; }
+
+    .approval-status-box {
+      display: none; margin-top: 14px; padding: 12px 14px; border-radius: 8px;
+      font-size: 0.9rem; font-weight: bold; text-align: center; line-height: 1.5;
+    }
+    .approval-status-box.waiting { background: #fef3c7; border: 1.5px solid #f59e0b; color: #92400e; }
+    .approval-status-box.approved { background: #dcfce7; border: 1.5px solid #16a34a; color: #166534; }
+    .approval-status-box.rejected { background: #fee2e2; border: 1.5px solid #dc2626; color: #991b1b; }
 
     .error-msg {
       color: #dc2626; background: #fef2f2; border: 1px solid #fecaca; padding: 8px 12px;
@@ -198,6 +216,15 @@
       border-radius: 6px; font-size: 0.88rem; font-weight: bold; margin-top: 10px; display: none;
     }
 
+    .auth-tabs {
+      display: flex; border-bottom: 2px solid #e2e8f0; margin-bottom: 18px;
+    }
+    .auth-tab {
+      flex: 1; padding: 10px; text-align: center; font-weight: bold; font-size: 0.95rem;
+      color: #64748b; background: none; border: none; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px;
+    }
+    .auth-tab.active { color: #0077b6; border-bottom-color: #0077b6; }
+
     /* Modal */
     .modal {
       display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%;
@@ -207,7 +234,7 @@
       max-width: 700px; width: 100%; background: #ffffff; border-radius: 12px; overflow: hidden;
       box-shadow: 0 5px 25px rgba(0,0,0,0.3); text-align: center; padding: 25px; position: relative;
     }
-    .login-modal-content { max-width: 400px; text-align: left; }
+    .login-modal-content { max-width: 430px; text-align: left; }
     .modal-content img { width: 100%; max-height: 400px; object-fit: contain; border-radius: 8px; margin-bottom: 15px; }
     .modal-close { position: absolute; top: 10px; right: 15px; font-size: 1.8rem; color: #333; cursor: pointer; font-weight: bold; }
     .modal-title { font-size: 1.2rem; color: #0077b6; font-weight: bold; margin-bottom: 8px; }
@@ -223,9 +250,11 @@
 
   <header class="hero">
     <div class="top-auth-bar">
-      <button type="button" id="topLoginBtn" class="top-btn-login" title="ログイン" aria-label="ログイン">🙎🏻‍♂️</button>
-      <span id="topUserBadge" class="top-user-badge">🙎🏻‍♂️ ログイン中</span>
-      <button type="button" id="topAddBtn" class="top-btn-add">✍️ 感想追加</button>
+      <button type="button" id="topStudentLoginBtn" class="top-icon-btn" title="学生ログイン / 新規登録" aria-label="学生ログイン">🙎🏻‍♂️</button>
+      <button type="button" id="topAdminLoginBtn" class="top-icon-btn admin-icon-btn" title="管理者ログイン" aria-label="管理者ログイン">🛡️</button>
+
+      <span id="topUserBadge" class="top-user-badge"></span>
+      <button type="button" id="topAddBtn" class="top-btn-add">✍️ 感想投稿</button>
       <button type="button" id="topLogoutBtn" class="top-btn-logout">ログアウト</button>
     </div>
 
@@ -304,15 +333,36 @@
             <option value="2024">2024年</option>
             <option value="2025">2025年</option>
             <option value="2026">2026年</option>
+            <option value="2027">2027年</option>
+            <option value="2028">2028年</option>
           </select>
         </div>
-        <button type="button" id="openFormBtn" class="btn-open-form">✍️ 感想を追加する</button>
+        <button type="button" id="openFormBtn" class="btn-open-form">✍️ 感想を投稿する</button>
       </div>
 
-      <!-- Review Submission Box (Visible ONLY after login) -->
+      <!-- ADMIN MANAGEMENT PANEL (Approve Pending Students + Delete Approved Students) -->
+      <div id="adminApprovalPanel" class="portal-box admin-panel-box">
+        <div class="portal-header">
+          <span class="portal-title">🛡️ 管理者パネル（学生アカウント管理）</span>
+        </div>
+
+        <!-- Section 1: Pending Student Registrations -->
+        <div class="admin-sub-section">
+          <h4 class="admin-sub-title">⏳ ① 承認待ち学生（<span id="pendingStudentCount">0</span>名）</h4>
+          <div id="pendingStudentsContainer" class="pending-list"></div>
+        </div>
+
+        <!-- Section 2: Approved Students List (Admin can Delete any student) -->
+        <div class="admin-sub-section">
+          <h4 class="admin-sub-title approved-sub-title">✅ ② 承認済み学生一覧（<span id="approvedStudentCount">0</span>名）</h4>
+          <div id="approvedStudentsContainer" class="pending-list"></div>
+        </div>
+      </div>
+
+      <!-- REVIEW SUBMISSION BOX -->
       <div id="reviewPortalBox" class="portal-box">
         <div class="portal-header">
-          <span class="portal-title">✍️ 研修旅行の感想を投稿（自動保存）</span>
+          <span class="portal-title">✍️ 研修旅行の感想を投稿（自動公開）</span>
           <button type="button" id="closeFormBtn" class="close-btn">閉じる</button>
         </div>
         <form id="reviewSubmitForm">
@@ -363,36 +413,94 @@
             </div>
           </div>
           <p id="yearErrorMsg" class="error-msg"></p>
-          <p id="saveSuccessMsg" class="success-toast">✅ 保存完了！Webサイトに自動で反映されました。</p>
+          <p id="saveSuccessMsg" class="success-toast"></p>
           <div style="margin-top: 16px; text-align: right;">
-            <button type="submit" id="submitReviewBtn" class="primary-btn">OK（自動保存して公開）</button>
+            <button type="submit" id="submitReviewBtn" class="primary-btn">OK（投稿して公開）</button>
           </div>
         </form>
       </div>
 
       <div class="review-grid" id="review-list" aria-live="polite"></div>
-      <p class="review-note">※カードをクリックすると、リンク先または写真が大きく表示されます。</p>
     </section>
 
   </div>
 
-  <!-- Login Modal (Email & Password Only) -->
-  <div id="loginModal" class="modal" onclick="closeLoginModal()">
+  <!-- MODAL 1: Student Login & Registration Modal -->
+  <div id="studentAuthModal" class="modal" onclick="closeStudentModal()">
     <div class="modal-content login-modal-content" onclick="event.stopPropagation()">
-      <span class="modal-close" onclick="closeLoginModal()">&times;</span>
-      <h3 class="modal-title" style="margin-bottom: 16px;">🙎🏻‍♂️ ログイン</h3>
-      <form id="firebaseLoginForm">
+      <span class="modal-close" onclick="closeStudentModal()">&times;</span>
+
+      <div class="auth-tabs">
+        <button type="button" id="tabLoginBtn" class="auth-tab active">🙎🏻‍♂️ 学生ログイン</button>
+        <button type="button" id="tabRegisterBtn" class="auth-tab">学生新規登録</button>
+      </div>
+
+      <!-- Tab 1: Student Login Form -->
+      <form id="studentLoginForm">
         <div class="form-group" style="margin-bottom: 14px;">
-          <label for="loginEmailInput">メールアドレス (Email)</label>
-          <input type="email" id="loginEmailInput" class="form-control" placeholder="メールアドレスを入力" required>
+          <label for="studentEmailInput">メールアドレス (Email)</label>
+          <input type="email" id="studentEmailInput" class="form-control" placeholder="メールアドレスを入力" required>
         </div>
         <div class="form-group" style="margin-bottom: 10px;">
-          <label for="loginPasswordInput">パスワード (Password)</label>
-          <input type="password" id="loginPasswordInput" class="form-control" placeholder="パスワードを入力" required>
+          <label for="studentPasswordInput">パスワード (Password)</label>
+          <input type="password" id="studentPasswordInput" class="form-control" placeholder="パスワードを入力" required>
         </div>
-        <p id="loginError" class="error-msg">※メールアドレスまたはパスワードが正しくありません。</p>
+        <p id="studentLoginError" class="error-msg">※メールアドレスまたはパスワードが正しくありません。</p>
         <div style="margin-top: 18px; text-align: right;">
-          <button type="submit" id="loginSubmitBtn" class="primary-btn">ログイン</button>
+          <button type="submit" id="studentLoginSubmitBtn" class="primary-btn">ログイン</button>
+        </div>
+      </form>
+
+      <!-- Tab 2: Student Registration + Re-Apply + Live Status + Dimmed/Active Login Button -->
+      <form id="studentRegisterForm" style="display: none;">
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label for="regNameInput">氏名 (Full Name)</label>
+          <input type="text" id="regNameInput" class="form-control" placeholder="例: 山田 太郎" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label for="regStudentIdInput">学籍番号 (Student ID)</label>
+          <input type="text" id="regStudentIdInput" class="form-control" placeholder="例: 2027001" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label for="regEmailInput">メールアドレス (Email)</label>
+          <input type="email" id="regEmailInput" class="form-control" placeholder="メールアドレスを入力" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 10px;">
+          <label for="regPasswordInput">パスワード (6文字以上)</label>
+          <input type="password" id="regPasswordInput" class="form-control" minlength="6" placeholder="6文字以上のパスワード" required>
+        </div>
+        <p id="regError" class="error-msg"></p>
+        <div style="margin-top: 14px; text-align: right;">
+          <button type="submit" id="regSubmitBtn" class="primary-btn">登録申請する</button>
+        </div>
+
+        <div id="approvalStatusBox" class="approval-status-box waiting">
+          ⏳ 管理者の承認待ちです。管理者が承認すると下のログインボタンが有効になります。
+        </div>
+        <button type="button" id="proceedToLoginBtn" class="proceed-login-btn" disabled>
+          🔒 ログインする（管理者承認待ち）
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 2: Separate Admin Login Modal -->
+  <div id="adminAuthModal" class="modal" onclick="closeAdminModal()">
+    <div class="modal-content login-modal-content" onclick="event.stopPropagation()">
+      <span class="modal-close" onclick="closeAdminModal()">&times;</span>
+      <h3 class="modal-title" style="color: #1e293b; margin-bottom: 16px;">🛡️ 管理者ログイン</h3>
+      <form id="adminLoginForm">
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label for="adminEmailInput">管理者メールアドレス (Admin Email)</label>
+          <input type="email" id="adminEmailInput" class="form-control" placeholder="管理者メールアドレスを入力" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 10px;">
+          <label for="adminPasswordInput">パスワード (Password)</label>
+          <input type="password" id="adminPasswordInput" class="form-control" placeholder="パスワードを入力" required>
+        </div>
+        <p id="adminLoginError" class="error-msg"></p>
+        <div style="margin-top: 18px; text-align: right;">
+          <button type="submit" id="adminLoginSubmitBtn" class="primary-btn admin-submit-btn">管理者ログイン</button>
         </div>
       </form>
     </div>
@@ -410,13 +518,13 @@
 
   <footer>
     <p>※バス走行中は安全のため必ずシートベルトの着用をお願いいたします。</p>
-    <p style="margin-top: 4px;">Create by BIZAE</p>
+    <p style="margin-top: 4px;">企画手配：株式会社 第一観光</p>
   </footer>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-auth.js";
-    import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js";
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-auth.js";
+    import { getFirestore, collection, doc, setDoc, getDoc, addDoc, updateDoc, deleteDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyAJb5BYGEu64j-_u1W5tv3ysABedYsbGaM",
@@ -428,7 +536,9 @@
       measurementId: "G-C6M02119NH"
     };
 
+    const ADMIN_EMAIL = "admin@school.jp";
     const MAX_ALLOWED_YEAR = 2027;
+    const ALL_DROPDOWN_YEARS = ["2024", "2025", "2026", "2027", "2028"];
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
@@ -436,77 +546,92 @@
 
     const baseReviewData = {
       "2024": [
-        { avatar: "💬", photo: "images/2024 students/vihara.webp", title: "クルーズから見る富士山", name: "ビハラさん", comment: "クルーズから見る富士山がとてもきれいで、忘れられない思い出になりました。" },
-        { avatar: "💬", photo: "images/2024 students/afuka.webp", title: "おいしいランチと写真撮影", name: "アフカさん", comment: "友達と一緒においしいランチを食べたり、写真を撮ったりできて楽しかったです。" },
-        { avatar: "💬", photo: "images/2024 students/karki.webp", title: "三保の松原と久能山東照宮の見学", name: "カルキさん", comment: "三保の松原と久能山東照宮を見学して、日本の歴史や文化を学ぶことができました。" },
-        { avatar: "💬", photo: "images/2024 students/sharma.webp", title: "バスの中の雰囲気とクラスメイト", name: "サルマさん", comment: "バスの中の雰囲気も良く、クラスメイトみんなと仲良くなれる最高の行事でした。" }
+        { staticId: "2024_0", avatar: "💬", photo: "images/2024 students/vihara.webp", title: "クルーズから見る富士山", name: "ビハラさん", comment: "クルーズから見る富士山がとてもきれいで、忘れられない思い出になりました。" },
+        { staticId: "2024_1", avatar: "💬", photo: "images/2024 students/afuka.webp", title: "おいしいランチと写真撮影", name: "アフカさん", comment: "友達と一緒においしいランチを食べたり、写真を撮ったりできて楽しかったです。" },
+        { staticId: "2024_2", avatar: "💬", photo: "images/2024 students/karki.webp", title: "三保の松原と久能山東照宮の見学", name: "カルキさん", comment: "三保の松原と久能山東照宮を見学して、日本の歴史や文化を学ぶことができました。" },
+        { staticId: "2024_3", avatar: "💬", photo: "images/2024 students/sharma.webp", title: "バスの中の雰囲気とクラスメイト", name: "サルマさん", comment: "バスの中の雰囲気も良く、クラスメイトみんなと仲良くなれる最高の行事でした。" }
       ],
       "2025": [
-        { avatar: "💬", photo: "images/2025 students/ayau.webp", title: "船の上からの景色", name: "アユさん", comment: "船の上から見る景色が最高でした。海風も気持ちよく、また参加したいです。" },
-        { avatar: "💬", photo: "images/2025 students/khadka.webp", title: "友達との思い出", name: "カドカさん", comment: "普段なかなか行けない場所を友達と一緒に回れて、とても充実した一日でした。" },
-        { avatar: "💬", photo: "images/2025 students/karishma.webp", title: "久能山東照宮の建物", name: "カリスマさん", comment: "久能山東照宮の建物が美しく、日本の歴史に興味を持つきっかけになりました。" },
-        { avatar: "💬", photo: "images/2025 students/sapana.webp", title: "写真スポットでの思い出", name: "サパナさん", comment: "写真スポットがたくさんあって、思い出に残るすばらしい一日になりました。" }
+        { staticId: "2025_0", avatar: "💬", photo: "images/2025 students/ayau.webp", title: "船の上からの景色", name: "アユさん", comment: "船の上から見る景色が最高でした。海風も気持ちよく、また参加したいです。" },
+        { staticId: "2025_1", avatar: "💬", photo: "images/2025 students/khadka.webp", title: "友達との思い出", name: "カドカさん", comment: "普段なかなか行けない場所を友達と一緒に回れて、とても充実した一日でした。" },
+        { staticId: "2025_2", avatar: "💬", photo: "images/2025 students/karishma.webp", title: "久能山東照宮の建物", name: "カリスマさん", comment: "久能山東照宮の建物が美しく、日本の歴史に興味を持つきっかけになりました。" },
+        { staticId: "2025_3", avatar: "💬", photo: "images/2025 students/sapana.webp", title: "写真スポットでの思い出", name: "サパナさん", comment: "写真スポットがたくさんあって、思い出に残るすばらしい一日になりました。" }
       ],
       "2026": [
-        { avatar: "💬", photo: "images/2026 students/kumari.webp", title: "駿河湾クルーズと富士山", name: "クマリさん", comment: "駿河湾クルーズで富士山を見ることができて感動しました。写真もたくさん撮れました。" },
-        { avatar: "💬", photo: "images/2026 students/sangita.webp", title: "ランチタイムの会話", name: "サンギタさん", comment: "はとばキッチンのランチがおいしく、友達との会話も弾んで楽しかったです。" },
-        { avatar: "💬", photo: "images/2026 students/gc.webp", title: "研修旅行の感想", name: "ジシさん", comment: "美しい景色と歴史ある場所の両方を楽しめて、思い出に残る研修旅行になりました。" },
-        { avatar: "💬", photo: "images/2026 students/dan.webp", title: "最高の景色と思い出", name: "ダンさん", comment: "天気に恵まれて最高の景色でした！友達と最高の思い出が作れて大満足です。" }
+        { staticId: "2026_0", avatar: "💬", photo: "images/2026 students/kumari.webp", title: "駿河湾クルーズと富士山", name: "クマリさん", comment: "駿河湾クルーズで富士山を見ることができて感動しました。写真もたくさん撮れました。" },
+        { staticId: "2026_1", avatar: "💬", photo: "images/2026 students/sangita.webp", title: "ランチタイムの会話", name: "サンギタさん", comment: "はとばキッチンのランチがおいしく、友達との会話も弾んで楽しかったです。" },
+        { staticId: "2026_2", avatar: "💬", photo: "images/2026 students/gc.webp", title: "研修旅行の感想", name: "ジシさん", comment: "美しい景色と歴史ある場所の両方を楽しめて、思い出に残る研修旅行になりました。" },
+        { staticId: "2026_3", avatar: "💬", photo: "images/2026 students/dan.webp", title: "最高の景色と思い出", name: "ダンさん", comment: "天気に恵まれて最高の景色でした！友達と最高の思い出が作れて大満足です。" }
       ]
     };
 
-    let reviewData = structuredClone(baseReviewData);
-    let isLoggedIn = false;
+    let hiddenStaticIds = JSON.parse(localStorage.getItem('hidden_static_reviews') || '[]');
+    let reviewData = {};
+    let pendingStudents = [];
+    let approvedStudents = [];
+    let currentUser = null;
+    let isAdmin = false;
+    let isApprovedStudent = false;
+    let isRegistering = false;
     let selectedAvatar = "🧑‍🎓";
+    let unsubscribeReviews = null;
+    let unsubscribeStudents = null;
+    let unsubscribePendingRegWatch = null;
+    let registeredEmailCache = "";
 
     // UI Elements
     const yearSelect = document.getElementById('review-year-select');
     const reviewList = document.getElementById('review-list');
-    const topLoginBtn = document.getElementById('topLoginBtn');
+    const topStudentLoginBtn = document.getElementById('topStudentLoginBtn');
+    const topAdminLoginBtn = document.getElementById('topAdminLoginBtn');
     const topUserBadge = document.getElementById('topUserBadge');
     const topAddBtn = document.getElementById('topAddBtn');
     const topLogoutBtn = document.getElementById('topLogoutBtn');
     const openFormBtn = document.getElementById('openFormBtn');
+
+    const adminApprovalPanel = document.getElementById('adminApprovalPanel');
+    const pendingStudentsContainer = document.getElementById('pendingStudentsContainer');
+    const pendingStudentCount = document.getElementById('pendingStudentCount');
+    const approvedStudentsContainer = document.getElementById('approvedStudentsContainer');
+    const approvedStudentCount = document.getElementById('approvedStudentCount');
+
     const reviewPortalBox = document.getElementById('reviewPortalBox');
     const closeFormBtn = document.getElementById('closeFormBtn');
-    const loginModal = document.getElementById('loginModal');
-    const firebaseLoginForm = document.getElementById('firebaseLoginForm');
-    const loginError = document.getElementById('loginError');
+
+    const studentAuthModal = document.getElementById('studentAuthModal');
+    const tabLoginBtn = document.getElementById('tabLoginBtn');
+    const tabRegisterBtn = document.getElementById('tabRegisterBtn');
+    const studentLoginForm = document.getElementById('studentLoginForm');
+    const studentRegisterForm = document.getElementById('studentRegisterForm');
+    const studentLoginError = document.getElementById('studentLoginError');
+    const regError = document.getElementById('regError');
+
+    const approvalStatusBox = document.getElementById('approvalStatusBox');
+    const proceedToLoginBtn = document.getElementById('proceedToLoginBtn');
+
+    const adminAuthModal = document.getElementById('adminAuthModal');
+    const adminLoginForm = document.getElementById('adminLoginForm');
+    const adminLoginError = document.getElementById('adminLoginError');
+
     const reviewSubmitForm = document.getElementById('reviewSubmitForm');
     const yearErrorMsg = document.getElementById('yearErrorMsg');
     const saveSuccessMsg = document.getElementById('saveSuccessMsg');
     const submitReviewBtn = document.getElementById('submitReviewBtn');
-
     const avatarPhotoInput = document.getElementById('avatarPhotoInput');
     const avatarUploadLabel = document.getElementById('avatarUploadLabel');
     const avatarPreviewImg = document.getElementById('avatarPreviewImg');
-
-    // Auto-Draft Save in localStorage
     const studentNameInput = document.getElementById('studentNameInput');
     const reviewTitleInput = document.getElementById('reviewTitleInput');
     const reviewLinkInput = document.getElementById('reviewLinkInput');
 
-    function loadDraft() {
-      const draft = JSON.parse(localStorage.getItem('student_review_draft') || '{}');
-      if (draft.name) studentNameInput.value = draft.name;
-      if (draft.title) reviewTitleInput.value = draft.title;
-      if (draft.link) reviewLinkInput.value = draft.link;
+    function buildFilteredBaseData() {
+      const result = { "2024": [], "2025": [], "2026": [], "2027": [], "2028": [] };
+      for (const [yr, items] of Object.entries(baseReviewData)) {
+        result[yr] = items.filter(item => !hiddenStaticIds.includes(item.staticId));
+      }
+      return result;
     }
 
-    function saveDraft() {
-      localStorage.setItem('student_review_draft', JSON.stringify({
-        name: studentNameInput.value,
-        title: reviewTitleInput.value,
-        link: reviewLinkInput.value
-      }));
-    }
-
-    studentNameInput.addEventListener('input', saveDraft);
-    reviewTitleInput.addEventListener('input', saveDraft);
-    reviewLinkInput.addEventListener('input', saveDraft);
-    loadDraft();
-
-    // Compress Image Helper
     function compressImageFile(file, maxWidth = 750, quality = 0.78) {
       return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -534,50 +659,397 @@
       });
     }
 
-    // Listen to Firebase Auth state
-    onAuthStateChanged(auth, (user) => {
-      isLoggedIn = !!user;
-      if (isLoggedIn) {
-        topLoginBtn.style.display = "none";
-        topUserBadge.style.display = "inline-block";
-        topAddBtn.style.display = "inline-block";
-        topLogoutBtn.style.display = "inline-block";
-        openFormBtn.style.display = "inline-block";
+    // Watch a student UID in real time for approval status updates
+    function watchStudentApproval(uid, waitingMessage) {
+      approvalStatusBox.className = "approval-status-box waiting";
+      approvalStatusBox.textContent = waitingMessage;
+      approvalStatusBox.style.display = "block";
+
+      proceedToLoginBtn.disabled = true;
+      proceedToLoginBtn.textContent = "🔒 ログインする（管理者承認待ち）";
+      document.getElementById('regSubmitBtn').disabled = true;
+      document.getElementById('regSubmitBtn').textContent = "申請済み";
+
+      if (unsubscribePendingRegWatch) unsubscribePendingRegWatch();
+      unsubscribePendingRegWatch = onSnapshot(doc(db, "students", uid), (snap) => {
+        if (!snap.exists()) {
+          approvalStatusBox.className = "approval-status-box rejected";
+          approvalStatusBox.textContent = "❌ 申請が却下または削除されました。再度「登録申請する」から申請できます。";
+          proceedToLoginBtn.disabled = true;
+          proceedToLoginBtn.textContent = "🔒 ログイン不可";
+          document.getElementById('regSubmitBtn').disabled = false;
+          document.getElementById('regSubmitBtn').textContent = "登録申請する";
+          return;
+        }
+
+        if (snap.data().approved === true) {
+          approvalStatusBox.className = "approval-status-box approved";
+          approvalStatusBox.textContent = "✅ 承認完了！ログイン可能になりました。下のボタンを押してログインしてください。";
+          proceedToLoginBtn.disabled = false;
+          proceedToLoginBtn.textContent = "🔓 ログインする（承認済み）";
+        }
+      });
+    }
+
+    // Modals
+    topStudentLoginBtn.addEventListener('click', () => {
+      studentLoginError.style.display = "none";
+      regError.style.display = "none";
+      studentAuthModal.style.display = "flex";
+    });
+    window.closeStudentModal = () => { studentAuthModal.style.display = "none"; };
+
+    topAdminLoginBtn.addEventListener('click', () => {
+      adminLoginError.style.display = "none";
+      adminAuthModal.style.display = "flex";
+    });
+    window.closeAdminModal = () => { adminAuthModal.style.display = "none"; };
+
+    function switchToLoginTab(prefillEmail = "") {
+      tabLoginBtn.classList.add('active');
+      tabRegisterBtn.classList.remove('active');
+      studentLoginForm.style.display = "block";
+      studentRegisterForm.style.display = "none";
+      studentLoginError.style.display = "none";
+      if (prefillEmail) {
+        document.getElementById('studentEmailInput').value = prefillEmail;
+        document.getElementById('studentPasswordInput').focus();
+      }
+    }
+
+    tabLoginBtn.addEventListener('click', () => switchToLoginTab());
+    tabRegisterBtn.addEventListener('click', () => {
+      tabRegisterBtn.classList.add('active');
+      tabLoginBtn.classList.remove('active');
+      studentRegisterForm.style.display = "block";
+      studentLoginForm.style.display = "none";
+    });
+
+    proceedToLoginBtn.addEventListener('click', () => {
+      if (proceedToLoginBtn.disabled) return;
+      switchToLoginTab(registeredEmailCache);
+    });
+
+    // Student Registration & Re-Apply Submit
+    studentRegisterForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('regNameInput').value.trim();
+      const studentId = document.getElementById('regStudentIdInput').value.trim();
+      const email = document.getElementById('regEmailInput').value.trim();
+      const password = document.getElementById('regPasswordInput').value.trim();
+      const btn = document.getElementById('regSubmitBtn');
+
+      btn.disabled = true;
+      btn.textContent = "申請中...";
+      regError.style.display = "none";
+      isRegistering = true;
+
+      try {
+        // Case 1: Brand new student registration
+        const cred = await createUserWithEmailAndPassword(auth, email, password);
+        const uid = cred.user.uid;
+        registeredEmailCache = email;
+
+        await setDoc(doc(db, "students", uid), {
+          uid: uid,
+          name: name,
+          studentId: studentId,
+          email: email,
+          approved: false,
+          createdAt: Date.now()
+        });
+
+        await signOut(auth);
+        isRegistering = false;
+        watchStudentApproval(uid, "⏳ 管理者の承認待ちです。管理者が承認すると下のログインボタンが有効になります。");
+      } catch (err) {
+        // Case 2: Deleted student re-applying with their previous email & password
+        if (err.code === "auth/email-already-in-use") {
+          try {
+            const existingCred = await signInWithEmailAndPassword(auth, email, password);
+            const uid = existingCred.user.uid;
+            const existingSnap = await getDoc(doc(db, "students", uid));
+
+            if (existingSnap.exists()) {
+              await signOut(auth);
+              isRegistering = false;
+              regError.textContent = existingSnap.data().approved
+                ? "※このメールアドレスは既に承認済みです。「学生ログイン」からログインしてください。"
+                : "⏳ このメールアドレスは既に申請済みで、管理者の承認待ちです。";
+              regError.style.display = "block";
+              btn.disabled = false;
+              btn.textContent = "登録申請する";
+              return;
+            }
+
+            // Re-create student record in Firestore as pending approval
+            await setDoc(doc(db, "students", uid), {
+              uid: uid,
+              name: name,
+              studentId: studentId,
+              email: email,
+              approved: false,
+              createdAt: Date.now()
+            });
+            await signOut(auth);
+            isRegistering = false;
+
+            registeredEmailCache = email;
+            watchStudentApproval(uid, "⏳ 再申請を受け付けました。管理者が承認すると下のログインボタンが有効になります。");
+            return;
+          } catch (reApplyErr) {
+            isRegistering = false;
+            regError.textContent = "※このメールは既に登録されています。再申請する場合は登録時の正しいパスワードを入力してください。";
+            regError.style.display = "block";
+          }
+        } else {
+          isRegistering = false;
+          regError.textContent = `※登録エラー (${err.code})：入力内容またはFirestoreルールを確認してください。`;
+          regError.style.display = "block";
+        }
+        btn.disabled = false;
+        btn.textContent = "登録申請する";
+      }
+    });
+
+    // Student Login Submit
+    studentLoginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('studentEmailInput').value.trim();
+      const password = document.getElementById('studentPasswordInput').value.trim();
+      const btn = document.getElementById('studentLoginSubmitBtn');
+
+      btn.disabled = true;
+      btn.textContent = "確認中...";
+      studentLoginError.style.display = "none";
+
+      try {
+        const cred = await signInWithEmailAndPassword(auth, email, password);
+        const studentSnap = await getDoc(doc(db, "students", cred.user.uid));
+
+        if (!studentSnap.exists()) {
+          await signOut(auth);
+          studentLoginError.textContent = "※この学生アカウントは管理者によって削除されています。「学生新規登録」タブから再申請してください。";
+          studentLoginError.style.display = "block";
+          return;
+        }
+
+        if (studentSnap.data().approved !== true) {
+          await signOut(auth);
+          studentLoginError.textContent = "⏳ まだ管理者の承認が完了していません。承認後にログインしてください。";
+          studentLoginError.style.display = "block";
+          return;
+        }
+
+        document.getElementById('studentPasswordInput').value = "";
+        closeStudentModal();
+        document.getElementById('reviews').scrollIntoView({ behavior: "smooth" });
+      } catch (err) {
+        studentLoginError.textContent = "※メールアドレスまたはパスワードが正しくありません。";
+        studentLoginError.style.display = "block";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "ログイン";
+      }
+    });
+
+    // Admin Login Submit
+    adminLoginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('adminEmailInput').value.trim();
+      const password = document.getElementById('adminPasswordInput').value.trim();
+      const btn = document.getElementById('adminLoginSubmitBtn');
+
+      if (email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
+        adminLoginError.textContent = `※管理者メールアドレス (${ADMIN_EMAIL}) を入力してください。`;
+        adminLoginError.style.display = "block";
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "ログイン中...";
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        document.getElementById('adminPasswordInput').value = "";
+        adminLoginError.style.display = "none";
+        closeAdminModal();
+        document.getElementById('reviews').scrollIntoView({ behavior: "smooth" });
+      } catch (err) {
+        adminLoginError.textContent = `※ログイン失敗 (${err.code})：管理者アカウント情報を確認してください。`;
+        adminLoginError.style.display = "block";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "管理者ログイン";
+      }
+    });
+
+    topLogoutBtn.addEventListener('click', async () => {
+      await signOut(auth);
+    });
+
+    // Monitor Auth State
+    onAuthStateChanged(auth, async (user) => {
+      if (isRegistering) return;
+
+      currentUser = user;
+      isAdmin = !!(user && user.email && user.email.toLowerCase() === ADMIN_EMAIL.toLowerCase());
+      isApprovedStudent = false;
+
+      if (unsubscribeStudents) {
+        unsubscribeStudents();
+        unsubscribeStudents = null;
+      }
+
+      if (currentUser) {
+        if (isAdmin) {
+          topStudentLoginBtn.style.display = "none";
+          topAdminLoginBtn.style.display = "none";
+          topUserBadge.style.display = "inline-block";
+          topUserBadge.textContent = "🛡️ 管理者ログイン中";
+          topUserBadge.className = "top-user-badge admin-mode";
+          topAddBtn.style.display = "inline-block";
+          topLogoutBtn.style.display = "inline-block";
+          openFormBtn.style.display = "inline-block";
+          adminApprovalPanel.style.display = "block";
+          subscribeToAllStudents();
+        } else {
+          unsubscribeStudents = onSnapshot(doc(db, "students", currentUser.uid), async (snap) => {
+            if (!snap.exists() || snap.data().approved !== true) {
+              await signOut(auth);
+              return;
+            }
+            isApprovedStudent = true;
+            const stData = snap.data();
+            topStudentLoginBtn.style.display = "none";
+            topAdminLoginBtn.style.display = "none";
+            topUserBadge.style.display = "inline-block";
+            topUserBadge.textContent = `🙎🏻‍♂️ ${stData.name}`;
+            topUserBadge.className = "top-user-badge";
+            topAddBtn.style.display = "inline-block";
+            topLogoutBtn.style.display = "inline-block";
+            openFormBtn.style.display = "inline-block";
+            adminApprovalPanel.style.display = "none";
+            if (!studentNameInput.value) studentNameInput.value = stData.name;
+          });
+        }
       } else {
-        topLoginBtn.style.display = "flex";
+        topStudentLoginBtn.style.display = "flex";
+        topAdminLoginBtn.style.display = "flex";
         topUserBadge.style.display = "none";
         topAddBtn.style.display = "none";
         topLogoutBtn.style.display = "none";
         openFormBtn.style.display = "none";
         reviewPortalBox.style.display = "none";
+        adminApprovalPanel.style.display = "none";
       }
+
+      subscribeToReviews();
     });
 
-    // Real-time Firestore Listener
-    const reviewsQuery = query(collection(db, "reviews"), orderBy("createdAt", "asc"));
-    onSnapshot(reviewsQuery, (snapshot) => {
-      reviewData = structuredClone(baseReviewData);
-      snapshot.forEach((docSnap) => {
-        const data = docSnap.data();
-        const y = String(data.year);
-        if (!reviewData[y]) reviewData[y] = [];
-        reviewData[y].push(data);
+    // Admin: Listen to Both Pending & Approved Students (No orderBy index required)
+    function subscribeToAllStudents() {
+      if (unsubscribeStudents) unsubscribeStudents();
+      unsubscribeStudents = onSnapshot(collection(db, "students"), (snapshot) => {
+        pendingStudents = [];
+        approvedStudents = [];
+        snapshot.forEach((docSnap) => {
+          const data = { uid: docSnap.id, ...docSnap.data() };
+          if (data.approved === true) {
+            approvedStudents.push(data);
+          } else {
+            pendingStudents.push(data);
+          }
+        });
+        pendingStudents.sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+        approvedStudents.sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+        renderStudentsPanels();
+      }, (err) => {
+        console.error("Students load error:", err);
       });
-      syncDropdownYears();
-      renderReviews(yearSelect.value);
-    });
+    }
+
+    function renderStudentsPanels() {
+      pendingStudentCount.textContent = pendingStudents.length;
+      if (pendingStudents.length === 0) {
+        pendingStudentsContainer.innerHTML = `<p style="color:#64748b; font-size:0.88rem;">現在、承認待ちの学生アカウントはありません。</p>`;
+      } else {
+        pendingStudentsContainer.innerHTML = pendingStudents.map(st => `
+          <div class="pending-item">
+            <div class="pending-info">
+              <div class="pending-meta">
+                <h4>👤 ${escapeHtml(st.name)}（学籍番号: ${escapeHtml(st.studentId)}）</h4>
+                <p>メール: ${escapeHtml(st.email)}</p>
+              </div>
+            </div>
+            <div class="pending-actions">
+              <button type="button" class="btn-approve btn-approve-student" data-uid="${st.uid}">✅ OK（学生承認）</button>
+              <button type="button" class="btn-reject btn-delete-student" data-uid="${st.uid}">🗑️ 却下</button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      approvedStudentCount.textContent = approvedStudents.length;
+      if (approvedStudents.length === 0) {
+        approvedStudentsContainer.innerHTML = `<p style="color:#64748b; font-size:0.88rem;">承認済みの学生はまだいません。</p>`;
+      } else {
+        approvedStudentsContainer.innerHTML = approvedStudents.map(st => `
+          <div class="pending-item approved-student-item">
+            <div class="pending-info">
+              <div class="pending-meta">
+                <h4>🎓 ${escapeHtml(st.name)}（学籍番号: ${escapeHtml(st.studentId)}）</h4>
+                <p>メール: ${escapeHtml(st.email)}</p>
+              </div>
+            </div>
+            <div class="pending-actions">
+              <button type="button" class="btn-reject btn-delete-student" data-uid="${st.uid}">🗑️ 学生を削除</button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      document.querySelectorAll('.btn-approve-student').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          await updateDoc(doc(db, "students", btn.dataset.uid), { approved: true });
+        });
+      });
+
+      document.querySelectorAll('.btn-delete-student').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          if (confirm("この学生アカウントを削除しますか？（削除するとログインできなくなり、再登録が必要になります）")) {
+            await deleteDoc(doc(db, "students", btn.dataset.uid));
+          }
+        });
+      });
+    }
+
+    // Listen to Reviews
+    function subscribeToReviews() {
+      if (unsubscribeReviews) unsubscribeReviews();
+
+      const reviewsQuery = query(collection(db, "reviews"), orderBy("createdAt", "asc"));
+      unsubscribeReviews = onSnapshot(reviewsQuery, (snapshot) => {
+        reviewData = buildFilteredBaseData();
+
+        snapshot.forEach((docSnap) => {
+          const data = { id: docSnap.id, ...docSnap.data() };
+          const y = String(data.year);
+          if (!reviewData[y]) reviewData[y] = [];
+          reviewData[y].push(data);
+        });
+
+        syncDropdownYears();
+        renderReviews(yearSelect.value);
+      });
+    }
 
     function syncDropdownYears(selectYear = null) {
-      const years = Object.keys(reviewData)
-        .filter(y => reviewData[y] && reviewData[y].length > 0)
-        .sort((a, b) => Number(a) - Number(b));
-
-      const currentVal = selectYear || yearSelect.value;
-      yearSelect.innerHTML = years
+      const currentVal = selectYear || yearSelect.value || "2024";
+      yearSelect.innerHTML = ALL_DROPDOWN_YEARS
         .map(y => `<option value="${y}">${y}年</option>`)
         .join('');
 
-      if (years.includes(String(currentVal))) {
+      if (ALL_DROPDOWN_YEARS.includes(String(currentVal))) {
         yearSelect.value = String(currentVal);
       } else {
         yearSelect.value = "2024";
@@ -595,6 +1067,11 @@
 
     function renderReviews(year) {
       const list = reviewData[year] || [];
+      if (list.length === 0) {
+        reviewList.innerHTML = "";
+        return;
+      }
+
       reviewList.innerHTML = list.map((review) => {
         const safeName = escapeHtml(review.name);
         const safeTitle = escapeHtml(review.title);
@@ -604,16 +1081,20 @@
         const avatarHtml = avatarVal.startsWith("data:image")
           ? `<img src="${avatarVal}" alt="${safeName}">`
           : avatarVal;
-        const linkBadge = safeLink ? ` 🔗` : "";
+
+        const adminDeleteHtml = isAdmin
+          ? `<button type="button" class="admin-delete-card-btn" data-id="${review.id || ''}" data-static-id="${review.staticId || ''}">🗑️ 削除</button>`
+          : "";
 
         return `
           <article class="review-card" data-photo="${review.photo}" data-title="${safeName} (${safeTitle})" data-comment="${safeComment}" data-link="${safeLink}">
+            ${adminDeleteHtml}
             <div class="review-card-body">
               <span class="review-student-name">
                 <span class="review-avatar-badge">${avatarHtml}</span>
                 ${safeName}
               </span>
-              <span class="review-topic-title">${safeTitle}${linkBadge}</span>
+              <span class="review-topic-title">${safeTitle}</span>
             </div>
             <img src="${review.photo}" alt="${safeTitle}" class="review-card-img">
           </article>
@@ -630,45 +1111,28 @@
           }
         });
       });
+
+      document.querySelectorAll('.admin-delete-card-btn').forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+          e.stopPropagation();
+          if (!confirm("この感想を削除しますか？")) return;
+
+          const cloudId = btn.dataset.id;
+          const staticId = btn.dataset.staticId;
+
+          if (cloudId) {
+            await deleteDoc(doc(db, "reviews", cloudId));
+          } else if (staticId) {
+            hiddenStaticIds.push(staticId);
+            localStorage.setItem('hidden_static_reviews', JSON.stringify(hiddenStaticIds));
+            subscribeToReviews();
+          }
+        });
+      });
     }
 
-    // Login Modal Controls
-    topLoginBtn.addEventListener('click', () => {
-      loginError.style.display = "none";
-      loginModal.style.display = "flex";
-    });
-
-    window.closeLoginModal = () => {
-      loginModal.style.display = "none";
-    };
-
-    firebaseLoginForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const email = document.getElementById('loginEmailInput').value.trim();
-      const password = document.getElementById('loginPasswordInput').value.trim();
-      const btn = document.getElementById('loginSubmitBtn');
-
-      btn.disabled = true;
-      btn.textContent = "ログイン中...";
-      try {
-        await signInWithEmailAndPassword(auth, email, password);
-        document.getElementById('loginPasswordInput').value = "";
-        loginError.style.display = "none";
-        closeLoginModal();
-      } catch (err) {
-        loginError.style.display = "block";
-      } finally {
-        btn.disabled = false;
-        btn.textContent = "ログイン";
-      }
-    });
-
-    topLogoutBtn.addEventListener('click', async () => {
-      await signOut(auth);
-    });
-
     function openFormBox() {
-      if (!isLoggedIn) return;
+      if (!isAdmin && !isApprovedStudent) return;
       yearErrorMsg.style.display = "none";
       saveSuccessMsg.style.display = "none";
       reviewPortalBox.style.display = "block";
@@ -707,10 +1171,10 @@
       selectedAvatar = compressedAvatar;
     });
 
-    // Submit Review -> Auto-Saves to Cloud Firestore
+    // Submit Review -> Publishes Directly
     reviewSubmitForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (!isLoggedIn) return;
+      if (!isAdmin && !isApprovedStudent) return;
 
       const selectedYear = Number(document.getElementById('reviewYearInput').value);
       if (selectedYear > MAX_ALLOWED_YEAR) {
@@ -725,7 +1189,7 @@
       yearErrorMsg.style.display = "none";
       saveSuccessMsg.style.display = "none";
       submitReviewBtn.disabled = true;
-      submitReviewBtn.textContent = "保存中...";
+      submitReviewBtn.textContent = "投稿中...";
 
       try {
         const compressedPhoto = await compressImageFile(photoInput.files[0], 750, 0.78);
@@ -740,10 +1204,11 @@
           photo: compressedPhoto,
           link: linkUrl,
           comment: "",
+          status: "approved",
+          submittedBy: currentUser.email,
           createdAt: Date.now()
         });
 
-        localStorage.removeItem('student_review_draft');
         reviewSubmitForm.reset();
         document.getElementById('reviewYearInput').value = String(MAX_ALLOWED_YEAR);
         document.querySelectorAll('.avatar-option').forEach((el, i) => el.classList.toggle('selected', i === 0));
@@ -753,13 +1218,14 @@
 
         syncDropdownYears(yearStr);
         renderReviews(yearStr);
+        saveSuccessMsg.textContent = "✅ 投稿完了！Webサイトに公開されました。";
         saveSuccessMsg.style.display = "block";
       } catch (err) {
-        yearErrorMsg.textContent = "※保存に失敗しました。Firestoreのルールと通信環境を確認してください。";
+        yearErrorMsg.textContent = "※投稿に失敗しました。Firestoreのルールを確認してください。";
         yearErrorMsg.style.display = "block";
       } finally {
         submitReviewBtn.disabled = false;
-        submitReviewBtn.textContent = "OK（自動保存して公開）";
+        submitReviewBtn.textContent = "OK（投稿して公開）";
       }
     });
 
@@ -783,6 +1249,7 @@
     };
 
     // Initial render
+    reviewData = buildFilteredBaseData();
     syncDropdownYears("2024");
     renderReviews("2024");
   </script>
