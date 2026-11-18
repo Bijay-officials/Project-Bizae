@@ -24,15 +24,22 @@
       z-index: 100;
     }
     .top-btn-login {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
       background: rgba(255, 255, 255, 0.95);
-      color: #0077b6;
-      border: 1px solid #ffffff;
-      padding: 7px 16px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: bold;
+      border: 1.5px solid #ffffff;
+      font-size: 1.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .top-btn-login:hover {
+      background: #ffffff;
+      transform: scale(1.08);
     }
     .top-user-badge {
       display: none;
@@ -200,7 +207,7 @@
       max-width: 700px; width: 100%; background: #ffffff; border-radius: 12px; overflow: hidden;
       box-shadow: 0 5px 25px rgba(0,0,0,0.3); text-align: center; padding: 25px; position: relative;
     }
-    .login-modal-content { max-width: 420px; text-align: left; }
+    .login-modal-content { max-width: 400px; text-align: left; }
     .modal-content img { width: 100%; max-height: 400px; object-fit: contain; border-radius: 8px; margin-bottom: 15px; }
     .modal-close { position: absolute; top: 10px; right: 15px; font-size: 1.8rem; color: #333; cursor: pointer; font-weight: bold; }
     .modal-title { font-size: 1.2rem; color: #0077b6; font-weight: bold; margin-bottom: 8px; }
@@ -216,8 +223,8 @@
 
   <header class="hero">
     <div class="top-auth-bar">
-      <button type="button" id="topLoginBtn" class="top-btn-login">🔐 学生ログイン</button>
-      <span id="topUserBadge" class="top-user-badge">🎓 ログイン中</span>
+      <button type="button" id="topLoginBtn" class="top-btn-login" title="ログイン" aria-label="ログイン">🙎🏻‍♂️</button>
+      <span id="topUserBadge" class="top-user-badge">🙎🏻‍♂️ ログイン中</span>
       <button type="button" id="topAddBtn" class="top-btn-add">✍️ 感想追加</button>
       <button type="button" id="topLogoutBtn" class="top-btn-logout">ログアウト</button>
     </div>
@@ -313,6 +320,9 @@
             <div class="form-group">
               <label for="reviewYearInput">参加年度 (Year)</label>
               <select id="reviewYearInput" class="form-control" required>
+                <option value="2024">2024年</option>
+                <option value="2025">2025年</option>
+                <option value="2026">2026年</option>
                 <option value="2027" selected>2027年</option>
                 <option value="2028">2028年</option>
               </select>
@@ -328,6 +338,10 @@
             <div class="form-group">
               <label for="reviewPhotoInput">思い出の写真 (Photo)</label>
               <input type="file" id="reviewPhotoInput" class="form-control" accept="image/*" required>
+            </div>
+            <div class="form-group full-width">
+              <label for="reviewLinkInput">関連リンク (Link URL・任意)</label>
+              <input type="url" id="reviewLinkInput" class="form-control" placeholder="例: https://example.com（空欄の場合は写真拡大表示）">
             </div>
             <div class="form-group full-width">
               <label>アバター選択 (Avatar：アイコン または 自分の写真)</label>
@@ -357,27 +371,27 @@
       </div>
 
       <div class="review-grid" id="review-list" aria-live="polite"></div>
-      <p class="review-note">※見どころの写真をクリックすると、写真とタイトルが大きく表示されます。</p>
+      <p class="review-note">※カードをクリックすると、リンク先または写真が大きく表示されます。</p>
     </section>
 
   </div>
 
-  <!-- Student Login Modal -->
+  <!-- Login Modal (Email & Password Only) -->
   <div id="loginModal" class="modal" onclick="closeLoginModal()">
     <div class="modal-content login-modal-content" onclick="event.stopPropagation()">
       <span class="modal-close" onclick="closeLoginModal()">&times;</span>
-      <h3 class="modal-title" style="margin-bottom: 16px;">🔐 学生ログイン</h3>
+      <h3 class="modal-title" style="margin-bottom: 16px;">🙎🏻‍♂️ ログイン</h3>
       <form id="firebaseLoginForm">
         <div class="form-group" style="margin-bottom: 14px;">
-          <label for="loginEmailInput">メールアドレス</label>
-          <input type="email" id="loginEmailInput" class="form-control" placeholder="例: student2027@school.jp" required>
+          <label for="loginEmailInput">メールアドレス (Email)</label>
+          <input type="email" id="loginEmailInput" class="form-control" placeholder="メールアドレスを入力" required>
         </div>
         <div class="form-group" style="margin-bottom: 10px;">
-          <label for="loginPasswordInput">パスワード</label>
+          <label for="loginPasswordInput">パスワード (Password)</label>
           <input type="password" id="loginPasswordInput" class="form-control" placeholder="パスワードを入力" required>
         </div>
         <p id="loginError" class="error-msg">※メールアドレスまたはパスワードが正しくありません。</p>
-        <div style="margin-top: 16px; text-align: right;">
+        <div style="margin-top: 18px; text-align: right;">
           <button type="submit" id="loginSubmitBtn" class="primary-btn">ログイン</button>
         </div>
       </form>
@@ -396,7 +410,7 @@
 
   <footer>
     <p>※バス走行中は安全のため必ずシートベルトの着用をお願いいたします。</p>
-    <p style="margin-top: 4px;">企画手配：株式会社 第一観光</p>
+    <p style="margin-top: 4px;">Create by BIZAE</p>
   </footer>
 
   <script type="module">
@@ -470,22 +484,26 @@
     // Auto-Draft Save in localStorage
     const studentNameInput = document.getElementById('studentNameInput');
     const reviewTitleInput = document.getElementById('reviewTitleInput');
+    const reviewLinkInput = document.getElementById('reviewLinkInput');
 
     function loadDraft() {
       const draft = JSON.parse(localStorage.getItem('student_review_draft') || '{}');
       if (draft.name) studentNameInput.value = draft.name;
       if (draft.title) reviewTitleInput.value = draft.title;
+      if (draft.link) reviewLinkInput.value = draft.link;
     }
 
     function saveDraft() {
       localStorage.setItem('student_review_draft', JSON.stringify({
         name: studentNameInput.value,
-        title: reviewTitleInput.value
+        title: reviewTitleInput.value,
+        link: reviewLinkInput.value
       }));
     }
 
     studentNameInput.addEventListener('input', saveDraft);
     reviewTitleInput.addEventListener('input', saveDraft);
+    reviewLinkInput.addEventListener('input', saveDraft);
     loadDraft();
 
     // Compress Image Helper
@@ -526,7 +544,7 @@
         topLogoutBtn.style.display = "inline-block";
         openFormBtn.style.display = "inline-block";
       } else {
-        topLoginBtn.style.display = "inline-block";
+        topLoginBtn.style.display = "flex";
         topUserBadge.style.display = "none";
         topAddBtn.style.display = "none";
         topLogoutBtn.style.display = "none";
@@ -581,19 +599,21 @@
         const safeName = escapeHtml(review.name);
         const safeTitle = escapeHtml(review.title);
         const safeComment = escapeHtml(review.comment || "");
+        const safeLink = escapeHtml(review.link || "");
         const avatarVal = review.avatar || "💬";
         const avatarHtml = avatarVal.startsWith("data:image")
           ? `<img src="${avatarVal}" alt="${safeName}">`
           : avatarVal;
+        const linkBadge = safeLink ? ` 🔗` : "";
 
         return `
-          <article class="review-card" data-photo="${review.photo}" data-title="${safeName} (${safeTitle})" data-comment="${safeComment}">
+          <article class="review-card" data-photo="${review.photo}" data-title="${safeName} (${safeTitle})" data-comment="${safeComment}" data-link="${safeLink}">
             <div class="review-card-body">
               <span class="review-student-name">
                 <span class="review-avatar-badge">${avatarHtml}</span>
                 ${safeName}
               </span>
-              <span class="review-topic-title">${safeTitle}</span>
+              <span class="review-topic-title">${safeTitle}${linkBadge}</span>
             </div>
             <img src="${review.photo}" alt="${safeTitle}" class="review-card-img">
           </article>
@@ -602,7 +622,12 @@
 
       document.querySelectorAll('.review-card').forEach(card => {
         card.addEventListener('click', () => {
-          openPhotoModal(card.dataset.photo, card.dataset.title, card.dataset.comment);
+          const targetLink = card.dataset.link;
+          if (targetLink) {
+            window.open(targetLink, '_blank', 'noopener,noreferrer');
+          } else {
+            openPhotoModal(card.dataset.photo, card.dataset.title, card.dataset.comment);
+          }
         });
       });
     }
@@ -705,6 +730,7 @@
       try {
         const compressedPhoto = await compressImageFile(photoInput.files[0], 750, 0.78);
         const yearStr = String(selectedYear);
+        const linkUrl = reviewLinkInput.value.trim();
 
         await addDoc(collection(db, "reviews"), {
           year: yearStr,
@@ -712,12 +738,14 @@
           title: reviewTitleInput.value.trim(),
           avatar: selectedAvatar,
           photo: compressedPhoto,
+          link: linkUrl,
           comment: "",
           createdAt: Date.now()
         });
 
         localStorage.removeItem('student_review_draft');
         reviewSubmitForm.reset();
+        document.getElementById('reviewYearInput').value = String(MAX_ALLOWED_YEAR);
         document.querySelectorAll('.avatar-option').forEach((el, i) => el.classList.toggle('selected', i === 0));
         avatarUploadLabel.classList.remove('selected');
         avatarPreviewImg.style.display = "none";
